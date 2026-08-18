@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aditi Bhandari — Creative Director</title>
+<meta name="description" content="Aditi Bhandari is a Seattle-based creative director and three-time founder building brand systems and AI-native products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0f0f0f;
+    --grey-1: #4a4a4a;
+    --grey-2: #8a8a8a;
+    --grey-3: #d9d9d9;
+    --grey-4: #efefef;
+    --bg: #fcfcfc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--black); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Inter Tight', sans-serif; font-weight: 500; letter-spacing: -0.02em; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+  .label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-2); font-weight: 500; }
+  .hr { border: 0; border-top: 1px solid var(--grey-3); }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(252,252,252,.9); backdrop-filter: blur(10px); }
+  .navbar { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
+  .name { font-family: 'Inter Tight'; font-weight: 500; letter-spacing: 0.22em; font-size: 12.5px; text-transform: uppercase; }
+  .navlinks { display: flex; gap: 36px; }
+  .navlinks a { font-size: 13px; color: var(--grey-1); transition: color .15s; }
+  .navlinks a:hover { color: var(--black); }
+
+  /* Hero */
+  .hero { padding: 130px 0 140px; }
+  .hero .label { margin-bottom: 40px; }
+  .hero h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: 1.06; max-width: 15ch; font-weight: 500; }
+  .hero .sub { margin-top: 44px; max-width: 46ch; font-size: 17px; color: var(--grey-1); }
+  .hero .down { display: inline-block; margin-top: 64px; font-size: 13px; color: var(--grey-2); }
+  .hero .down:hover { color: var(--black); }
+
+  /* Meta strip */
+  .meta { display: flex; gap: 72px; padding: 36px 0; border-top: 1px solid var(--grey-3); flex-wrap: wrap; }
+  .meta div b { display: block; font-family: 'Inter Tight'; font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+  .meta div span { font-size: 12px; color: var(--grey-2); }
+
+  /* Sections */
+  section { padding: 110px 0 30px; }
+  .sechead { margin-bottom: 70px; }
+  .sechead .label { display: block; margin-bottom: 10px; }
+
+  /* Case studies */
+  .case { display: grid; grid-template-columns: 90px 1fr 1.1fr; gap: 48px; padding: 64px 0; border-top: 1px solid var(--grey-3); align-items: start; }
+  .num { font-family: 'Inter Tight'; font-size: 15px; color: var(--grey-2); padding-top: 6px; }
+  .case h3 { font-size: 30px; line-height: 1.15; margin-bottom: 14px; max-width: 18ch; }
+  .case .meta-line { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 28px; }
+  .case p { color: var(--grey-1); margin-bottom: 14px; max-width: 58ch; }
+  .case ul { list-style: none; margin: 20px 0 0; }
+  .case li { padding: 10px 0; border-top: 1px solid var(--grey-4); color: var(--grey-1); font-size: 14px; }
+  .ph { background: var(--grey-4); aspect-ratio: 4/3; display: flex; align-items: flex-end; padding: 20px; }
+  .ph span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); }
+  .shot img { width: 100%; display: block; border: 1px solid var(--grey-3); }
+  .shot figcaption { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); margin-top: 10px; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .gallery img { width: 100%; display: block; }
+  .gallery figcaption { grid-column: 1 / -1; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); margin-top: 8px; }
+  .watch { display: inline-block; margin-top: 22px; font-size: 14px; border-bottom: 1px solid var(--black); padding-bottom: 2px; }
+  .watch:hover { color: var(--grey-1); border-color: var(--grey-2); }
+
+  /* Work index */
+  .index { border-top: 1px solid var(--grey-3); }
+  .row { display: grid; grid-template-columns: 1fr 1.6fr 120px; gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--grey-4); align-items: baseline; }
+  .row h4 { font-family: 'Inter Tight'; font-weight: 500; font-size: 17px; letter-spacing: -0.01em; }
+  .row p { font-size: 14px; color: var(--grey-1); }
+  .row .yr { font-size: 12px; color: var(--grey-2); text-align: right; }
+  a.row:hover h4 { text-decoration: underline; text-underline-offset: 3px; }
+  .ext { color: var(--grey-2); font-size: 13px; margin-left: 6px; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; padding-top: 20px; }
+  .portrait { background: var(--grey-4); aspect-ratio: 3/4; display: flex; align-items: flex-end; padding: 20px; }
+  .about p { color: var(--grey-1); margin-bottom: 16px; max-width: 60ch; }
+
+  /* Footer */
+  footer { margin-top: 120px; background: var(--black); color: #b5b5b5; padding: 110px 0 60px; }
+  footer h2 { color: #fcfcfc; font-size: clamp(30px, 4.4vw, 52px); font-weight: 500; letter-spacing: -0.02em; max-width: 16ch; line-height: 1.1; }
+  footer .mail { display: inline-block; margin-top: 36px; color: #fcfcfc; font-size: 18px; border-bottom: 1px solid #555; padding-bottom: 3px; }
+  footer .mail:hover { border-color: #fcfcfc; }
+  .foot-links { display: flex; gap: 32px; margin-top: 72px; font-size: 13px; }
+  .foot-links a { color: #8a8a8a; }
+  .foot-links a:hover { color: #fcfcfc; }
+  .fineprint { margin-top: 56px; font-size: 11.5px; color: #5a5a5a; letter-spacing: 0.04em; }
+
+  @media (max-width: 860px) {
+    .wrap { padding: 0 22px; }
+    .case { grid-template-columns: 1fr; gap: 24px; }
+    .num { padding: 0; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .row { grid-template-columns: 1fr; gap: 6px; }
+    .row .yr { text-align: left; }
+    .navlinks { display: none; }
+    .meta { gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap navbar">
+  <a class="name" href="#top">Aditi&nbsp;&nbsp;Bhandari</a>
+  <div class="navlinks">
+    <a href="#case-studies">Case Studies</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="label">Creative Director · Brand Systems &amp; AI · Seattle</div>
+  <h1>I build other people's boldest ideas into working realities.</h1>
+  <p class="sub">Three-time founder. Engineer by training, artist by education. I architect AI products, design brand systems that scale through other people's hands, and lead the teams that ship them.</p>
+  <a class="down" href="#case-studies">Case studies ↓</a>
+</div></header>
+
+<div class="wrap"><div class="meta">
+  <div><b>15 yrs</b><span>Brand, product &amp; motion</span></div>
+  <div><b>3</b><span>Ventures founded</span></div>
+  <div><b>50+</b><span>Global brands served</span></div>
+  <div><b>2</b><span>National design awards</span></div>
+</div></div>
+
+<section id="case-studies"><div class="wrap">
+  <div class="sechead"><span class="label">Selected Case Studies</span></div>
+
+  <div class="case">
+    <div class="num">01</div>
+    <div>
+      <h3>The growth engine</h3>
+      <div class="meta-line">Organic Growth · Content System · 2025–2026 · Ongoing</div>
+      <p>A 46-year medical practice with a 25,000-strong community and no digital voice. I built the complete engine: podcasts with high-profile guests, short-form video, editorial, webinars, and a paid newsletter, with AI through the whole pipeline so a two-person studio sustains the output of a content team. Zero paid media, and the growth is still compounding month over month.</p>
+      <ul>
+        <li>YouTube viewership up 3x in eight months, growing every month</li>
+        <li>Instagram peaks of 200K views, 70% of reach from non-followers</li>
+        <li>Monetized newsletter, 100% retention through five months</li>
+        <li>Flagship webinar: 101 registrations, 53% live attendance</li>
+      </ul>
+    </div>
+    <figure class="shot"><img src="case-01-growth-engine.png" alt="The content engine: source, production formats, and eight-month results"><figcaption>The content engine and its results</figcaption></figure>
+  </div>
+
+  <div class="case">
+    <div class="num">02</div>
+    <div>
+      <h3>Designing an AI physician</h3>
+      <div class="meta-line">Health Platform · Product Architecture · NDA · 2026</div>
+      <p>The same physician's preventive method, taken beyond the consult room. Health AI has a trust problem: generative models improvise and medicine cannot. So the system's defining feature is restraint. Phase one is deterministic; every recommendation comes from doctor-approved protocols, reviewed in a clinician dashboard before it reaches a member, designed for WhatsApp delivery on a HIPAA-eligible AWS architecture.</p>
+      <p>I designed the product end to end, built the market sizing and investor narrative, recruited the AI engineering team, and ran the first market test: a launch webinar with 101 registrations, 53% live attendance, and 100+ early adopters converted.</p>
+    </div>
+    <figure class="shot"><img src="case-02-ai-physician.png" alt="System architecture: intake, rules engine, clinician review, delivery"><figcaption>Deterministic architecture and guardrails</figcaption></figure>
+  </div>
+
+  <div class="case">
+    <div class="num">03</div>
+    <div>
+      <h3>A brand 20-year-olds run without me in the room</h3>
+      <div class="meta-line">YOU Summit · Brand System, Volunteer Method &amp; AI Film Sprint · 2026</div>
+      <p>A 1,500-attendee AI conference at the University of Washington, marketed by student volunteers using AI. That was the point, not the constraint. I designed the identity to survive other people's hands: palette, type, motion language, and a versioned template library with platform playbooks, so a first-time volunteer produces on-brand work on day one.</p>
+      <p>Then I built the method that runs it. Not a brand book handed over and abandoned, but a working system: a 107-day, nine-platform strategy, platform-specific training, clear ownership per channel, and a review gate I hold on a 24-hour turnaround. Volunteers create and publish. I set direction and hold the bar. All channels are live and run by the trained team.</p>
+      <p>I also created and convene the <strong style="font-weight:500">AI Film Sprint</strong>: twelve hours, one theme, teams of students writing, generating, voicing, and editing a complete short film entirely with AI. No cameras, no actors, no stock. I designed the format end to end, from the judging rubric that weights story above tooling to the twelve-hour production timeline, and I lead the sponsorship outreach: pitching AI video, voice, and music platforms to put generation credits directly into students' hands, in exchange for placement and real proof of what their tools do under deadline.</p>
+      <p>The through-line across all of it is the same conviction: young people do not need to be protected from AI, they need to be made confident with it, especially on the creative side, where the fear of being replaced is loudest and least true. A student with no budget and no film school can now finish a cinematic short in an afternoon. The Sprint proves it live, on a deadline, in public.</p>
+    </div>
+    <figure class="shot"><img src="case-03-you-summit-brandboard.png" alt="YOU Summit brand system: palette, type, template library, operating model"><figcaption>Brand system and template library</figcaption></figure>
+  </div>
+
+  <div class="case">
+    <div class="num">04</div>
+    <div>
+      <h3>AI films that filled a stage</h3>
+      <div class="meta-line">Femina · AI Film &amp; Campaign Direction · 2026</div>
+      <p>A multicultural pageant needed contestants and sponsors. I produced fifteen AI films as the campaign engine: reveal pieces, story films, and short-form built entirely with generative tools, published across <a href="https://www.instagram.com/femina_usa/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">@femina_usa</a> and <a href="https://www.instagram.com/priyankasignaturecouture/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">@priyankasignaturecouture</a>, where several became the accounts' best-performing posts.</p>
+      <ul>
+        <li>15 AI films produced as the campaign's recruitment and sponsorship engine</li>
+        <li>35 contestants signed up</li>
+        <li>32+ sponsors secured</li>
+      </ul>
+      <p style="margin-top:16px">Alongside the films I direct thirty-five cinematic stage backdrops, one per contestant. No literal cultural symbols; each woman's story becomes a living environment. Wheat and woven thread for Moldova. A breathing celestial field for Cosmic Shakti. Water and mist for Seattle. Every composition is built for a real stage: controlled brightness, a deliberately calm center where she stands, motion pushed to the outer edges so her costume stays dominant.</p>
+      <p>ChatGPT for narrative analysis, Midjourney for master frames, Veo, Hailuo, and Leonardo for motion. AI generates; I direct, review, and approve every frame.</p>
+      <a class="watch" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">Watch the films ↗</a>
+    </div>
+    <figure class="gallery">
+      <img src="femina-01.jpg" alt="Stage backdrop: woven thread and wheat, calm dark center">
+      <img src="femina-02.jpg" alt="Stage backdrop">
+      <img src="femina-03.jpg" alt="Stage backdrop">
+      <img src="femina-04.jpg" alt="Stage backdrop">
+      <figcaption>Reference frames. Four of thirty-five.</figcaption>
+    </figure>
+  </div>
+
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="sechead"><span class="label">Featured Work</span></div>
+  <div class="index">
+    <div class="row"><h4>Award-Winning Book Covers</h4><p>Two national wins for Rupa Publications: World Book Fair 2024 and the Oxford Book Store Prize 2024.</p><div class="yr">2024</div></div>
+    <a class="row" href="https://deliriousinnewyork.site" target="_blank" rel="noopener"><h4>Delirious in New York<span class="ext">↗</span></h4><p>An AI film with its own theatrical site. One of two Cahn Studios productions bound for the festival circuit.</p><div class="yr">2026</div></a>
+    <a class="row" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener"><h4>AI with Cahn Studios<span class="ext">↗</span></h4><p>The full body of AI film work: campaign films, story pieces, motion, and process. The living archive of current work.</p><div class="yr">Ongoing</div></a>
+    <div class="row"><h4>Feedo Pro</h4><p>A video-feedback SaaS designed, built with AI, and launched in one month. Live for six months, 50 active users.</p><div class="yr">2025</div></div>
+    <div class="row"><h4>Swiss &amp; India: 75 Years</h4><p>Two animated films for the Embassy of Switzerland, screened to 50,000+ worldwide.</p><div class="yr">2023</div></div>
+    <div class="row"><h4>Nestle &amp; Lenskart Installations</h4><p>30-foot and 15-foot brand installations seen daily by thousands.</p><div class="yr">2022</div></div>
+    <div class="row"><h4>Save the Children Comics</h4><p>A three-part political-literacy series that reached 1,000+ children.</p><div class="yr">2021</div></div>
+    <div class="row"><h4>Find Your Story. Build Your Strategy.</h4><p>A paid two-hour AI-forward social media intensive. Twelve seats, built around live exercises: story statement, algorithm intelligence, content architecture, and an AI workflow demo. Everyone leaves with a 30-day plan they wrote themselves.</p><div class="yr">2026</div></div>
+    <div class="row"><h4>Cahn's AI Canvas</h4><p>A newsletter on AI and creativity. 800+ readers in its first year.</p><div class="yr">Ongoing</div></div>
+    <div class="row"><h4>Talks &amp; Research</h4><p>Seattle Desi TV · Augmented AI podcast · YOU Summit 2026 panelist · Research contributor, "Mothers Speak" (IJNRD).</p><div class="yr">Ongoing</div></div>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="sechead"><span class="label">About</span></div>
+  <div class="about">
+    <img src="portrait.jpg" alt="Aditi Bhandari" style="width:100%;display:block">
+    <div>
+      <p>I'm Aditi Bhandari, a creative director and three-time founder based in Seattle. For fifteen years I've built other people's boldest ideas into working realities: a physician's four decades of judgment into an AI platform, a publisher's manuscripts into nationally awarded covers, a youth summit's mission into a nine-platform brand run by students I trained.</p>
+      <p>I trained as an engineer, studied as an artist, and operate as both. At Cahn Studios I architect AI products, direct brands, and build the teams that deliver them, working with GitHub and Claude Code daily. Before Seattle, I co-founded Arteq Studios in India, leading a team of eight through five years of growth and 500+ works for global brands.</p>
+      <p>Alongside the professional practice, I remain a traditional artist. I teach drawing at Seattle Art Circle, and I'm shaped by history, psychology, and the quiet art of observing people. I believe the next decade's creative organizations will be AI-native, and I build like it.</p>
+    </div>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <span class="label" style="color:#5a5a5a;">Contact</span>
+  <h2>Working on something ambitious? I'd love to hear about it.</h2>
+  <a class="mail" href="mailto:adtbhandari@gmail.com">adtbhandari@gmail.com</a>
+  <div class="foot-links">
+    <a href="https://www.linkedin.com/in/aditibhandari84/">LinkedIn</a>
+    <a href="https://www.youtube.com/@AIwithCahnStudios">YouTube</a>
+    <a href="https://deliriousinnewyork.site">Delirious in New York</a>
+    <a href="https://medium.com/@adtbhandari">Medium</a>
+    <a href="https://www.instagram.com/a_diti_b/">Instagram</a>
+    <a href="https://www.behance.net/aditibhandari20">Behance</a>
+    <a href="https://aditibhandari.myportfolio.com">Archive</a>
+  </div>
+  <div class="fineprint">© 2026 Aditi Bhandari · Seattle, WA</div>
+</div></footer>
+
+</body>
+</html>
