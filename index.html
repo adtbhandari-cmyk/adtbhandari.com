@@ -87,6 +87,21 @@
   .ph { background: var(--grey-4); aspect-ratio: 4/3; display: flex; align-items: flex-end; padding: 20px; }
   .ph span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); }
   .shot img { width: 100%; display: block; border: 1px solid var(--grey-3); }
+  .banner { margin-top: 4px; }
+  .banner img { width: 100%; display: block; }
+  .banner figcaption { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 12px; }
+  .player { position: relative; width: 100%; aspect-ratio: 16/9; background: var(--black); }
+  .player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .playerlinks { display: flex; gap: 32px; margin-top: 22px; flex-wrap: wrap; }
+  .playerlinks a { font-size: 14px; border-bottom: 1px solid var(--grey-3); padding-bottom: 2px; }
+  .playerlinks a:hover { border-color: var(--black); }
+  .craft-line { font-size: clamp(24px, 3vw, 34px); font-weight: 500; max-width: 22ch; margin-top: 6px; }
+  .craft { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px; }
+  .craft figure { display: flex; flex-direction: column; }
+  .craft img { width: 100%; height: 300px; object-fit: cover; object-position: top center; display: block; background: var(--grey-4); }
+  .craft figcaption { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 11px; }
+  @media (max-width: 860px) { .craft { grid-template-columns: 1fr 1fr; } .craft img { height: 230px; } }
+  @media (max-width: 520px) { .craft { grid-template-columns: 1fr; } }
   .panel { border: 1px solid var(--grey-3); background: #fff; }
   .panel-head { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); padding: 18px 22px 0; }
   .curve { width: 100%; height: 74px; display: block; margin-top: 14px; }
@@ -148,6 +163,8 @@
     <a href="#principles">How I Work</a>
     <a href="#case-studies">Case Studies</a>
     <a href="#work">Work</a>
+    <a href="#films">Films</a>
+    <a href="#craft">Craft</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
@@ -159,6 +176,13 @@
   <p class="sub">Creative executive and AI strategist, 15+ years across brand, product, and film. Three ventures founded and operated with P&amp;L ownership. A B.Tech in Computer Science Engineering and a Masters in Animation, which is why I can architect an AI platform and art-direct the film that sells it.</p>
   <a class="down" href="#case-studies">Case studies ↓</a>
 </div></header>
+
+<div class="wrap">
+  <figure class="banner">
+    <img src="banner-paris.jpg" alt="Wraparound cover painting for Clearly Invisible in Paris: Haussmann facade, red awning, aerialist descending on white silk">
+    <figcaption>Wraparound cover painting &middot; <i>Clearly Invisible in Paris</i>, Koël Purie Rinchet &middot; Rupa Publications</figcaption>
+  </figure>
+</div>
 
 <div class="wrap"><div class="meta">
   <div><b>15+ yrs</b><span>Brand, product &amp; film</span></div>
@@ -199,7 +223,7 @@
   <div class="principle">
     <h3>Outcome before spend</h3>
     <div>
-      <p>I build a small real version, read what the market says, then commit. Feedo went from idea to a live platform with fifty users in a month, which told me more about the category than any forecast would have, and told me precisely where to put capital next. Speed to evidence is the advantage; conviction follows the evidence.</p>
+      <p>Build a small real version, read what the market says, then commit. Speed to evidence is the advantage. Conviction follows the evidence.</p>
       <span class="ev">Evidence: Feedo, below</span>
     </div>
   </div>
@@ -207,31 +231,15 @@
   <div class="principle">
     <h3>Strategy that is current, not remembered</h3>
     <div>
-      <p>Platform mechanics change every quarter, and most marketing advice is eighteen months stale. My strategies are rebuilt against what is working now: what the algorithm rewards this year, which signals matter, where an audience actually is. That is why they pay back.</p>
-      <span class="ev">Evidence: 3× organic growth, zero paid media</span>
-    </div>
-  </div>
-
-  <div class="principle">
-    <h3>Validate before you build</h3>
-    <div>
-      <p>The preventive-health platform has not been coded yet, and that is deliberate. A launch webinar drew 100 sign-ups and 50 live attendees, and the WhatsApp community that followed continues to grow. Demand is being proven before engineering spend, not after.</p>
-      <span class="ev">Evidence: AI health platform, below</span>
-    </div>
-  </div>
-
-  <div class="principle">
-    <h3>Networks over ad spend</h3>
-    <div>
-      <p>I arrived in Seattle two years ago without a local network. Rather than buy visibility, I built it: partnerships, speaking, teaching, and community work. The studio now runs on inbound and referral, with five active projects and no paid acquisition.</p>
-      <span class="ev">Evidence: Cahn Studios, recurring client base</span>
+      <p>Platform mechanics change every quarter and most marketing advice is eighteen months stale. I rebuild against what is working now. That is why it pays back.</p>
+      <span class="ev">Evidence: 393% organic growth, zero paid media</span>
     </div>
   </div>
 
   <div class="principle">
     <h3>Ownership, and the deadline</h3>
     <div>
-      <p>I hold the standard and the date at the same time. Across fifteen years and three ventures, the work has shipped when it was promised, which is a large part of why clients stay.</p>
+      <p>I hold the standard and the date at the same time. Across fifteen years and three ventures, the work has shipped when it was promised.</p>
       <span class="ev">Evidence: 80%+ client retention across 50+ brands</span>
     </div>
   </div>
@@ -272,10 +280,8 @@
       <p>I built the engine that would carry it: podcasts with high-profile guests, short-form video, editorial, webinars, and a paid newsletter, structured so each format feeds the next. A webinar produces clips, clips produce subscribers, subscribers fill the following webinar. AI runs through the production pipeline, which is how a two-person studio sustains the output of a content team.</p>
       <p>Eight months, no paid media.</p>
       <ul>
-        <li>YouTube views up 393% year over year, still climbing</li>
-        <li>Six-figure view counts on individual posts, with 87% of reach from non-followers</li>
-        <li>Paid newsletter, five months, not a single unsubscribe</li>
-        <li>Flagship webinar: 101 registered, 53% showed up live</li>
+        <li>Paid newsletter, five months, zero unsubscribes</li>
+        <li>Flagship webinar: 101 registered, 53% live attendance</li>
       </ul>
     </div>
 
@@ -303,10 +309,8 @@
       <h3>Restraint as a feature</h3>
       <div class="meta-line">Preventive Health Platform · Product Architecture · Under NDA · 2026</div>
       <span class="status">Design complete · build next</span>
-      <p>Generative models improvise, and medicine cannot. The system I designed therefore generates nothing in its first phase.</p>
-      <p>Every response is a protocol the physician has personally approved, selected deterministically by a rules engine and reviewed in his dashboard before it reaches a member. Delivery runs over WhatsApp, on the principle that nobody should have to download an application in order to be cared for. The generative layer is earned rather than assumed: it unlocks only once the deterministic model has proven itself across the first hundred members.</p>
-      <p>I designed the product end to end, covering use case, system architecture, interface, and clinical guardrails, then built the commercial case behind it: market sizing, unit economics, and the investor narrative. Alongside that I recruited the engineering team, and ran the first market test myself: a launch webinar that drew 101 registrations, held 53 percent live attendance, and converted more than a hundred people to the concept before a line of it had been built.</p>
-      <p>The design is complete, and demand is being validated before engineering spend: a launch webinar drew 100 sign-ups and 50 live attendees, and the WhatsApp community formed afterwards continues to grow. Proof of concept is the next milestone.</p>
+      <p>Generative models improvise. Medicine cannot. So the system generates nothing in its first phase: every response is a protocol the physician has approved, selected deterministically by a rules engine and reviewed in his dashboard before it reaches a member. Delivery runs over WhatsApp, because nobody should download an app to be cared for.</p>
+      <p>I designed it end to end, built the commercial case behind it, recruited the engineering team, and ran the first market test myself.</p>
     </div>
     <figure class="shot"><img src="case-02-ai-physician.png" alt="System architecture: intake, rules engine, clinician review, delivery"><figcaption>Deterministic architecture and guardrails</figcaption></figure>
   </div>
@@ -317,10 +321,8 @@
       <h3>A brand that runs on a system</h3>
       <div class="meta-line">YOU Summit · Founding Creative &amp; Design Partner · University of Washington, 2–4 October 2026</div>
       <span class="status">In flight · campaign live now</span>
-      <p>The summit exists to make young people confident with AI. Marketing it through an agency would have contradicted the premise. The campaign is therefore executed by a student team, trained and directed by me.</p>
-      <p>That constraint shaped the design. The identity is built to be executed by people who did not design it: palette, typography, motion language, voice, and a versioned template library precise enough that a first-time contributor produces work that holds. Around it sits the operating system, a 107-day plan across nine channels with defined ownership, platform-specific training, and a review gate I hold within twenty-four hours. The team creates and publishes. I set direction and hold the standard. Every channel is live and running on it today.</p>
-      <p>I also designed the summit's <strong style="font-weight:500">AI Film Sprint</strong>, the competition that closes the final day. Twelve hours, one theme, teams writing, generating, voicing, and cutting a complete short film. No cameras, no crew, no stock. I wrote the format, the rubric that weights story above tooling, and the sponsorship case now with the AI platforms, trading generation credits for proof of what their tools do under deadline. Alongside it I run outreach to sponsors, businesses, and state representatives, and will teach an AI workshop for the students themselves.</p>
-      <p>The conviction underneath all of it: young people do not need protecting from AI. They need to be made confident with it, most of all on the creative side, where the fear is loudest and least true. A student with no budget and no film school can finish a cinematic short in an afternoon. In October, the Sprint puts that to the test on a deadline, in public.</p>
+      <p>The summit exists to make young people confident with AI, so marketing it through an agency would have contradicted the premise. A student team executes it, trained and directed by me.</p>
+      <p>The identity is built to be run by people who did not design it: palette, typography, motion, voice, and a template library precise enough that a first-time contributor produces work that holds. Around it, a 107-day plan across nine channels with a review gate I clear within twenty-four hours. I also designed the AI Film Sprint that closes the final day.</p>
     </div>
     <figure class="shot"><img src="case-03-you-summit-brandboard.png" alt="YOU Summit brand system: palette, type, template library, operating model"><figcaption>Brand system and template library</figcaption></figure>
   </div>
@@ -331,14 +333,14 @@
       <h3>The campaign came before the stage</h3>
       <div class="meta-line">Femina · AI Film &amp; Campaign Direction · Seattle, 13 September 2026</div>
       <span class="status">Campaign delivered · event upcoming</span>
-      <p>A multicultural pageant needed contestants and sponsors before it needed a stage. I directed the recruitment campaign: fifteen videos built with generative tools, published across <a href="https://www.instagram.com/femina_usa/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">@femina_usa</a> and <a href="https://www.instagram.com/priyankasignaturecouture/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">@priyankasignaturecouture</a>, several of which became the best-performing posts those accounts have published.</p>
+      <p>A multicultural pageant needed contestants and sponsors before it needed a stage. I directed the recruitment campaign, and several of those videos became the best-performing posts those accounts have published.</p>
       <ul>
         <li>15 campaign videos</li>
         <li>35 contestants signed up</li>
         <li>32+ sponsors secured</li>
       </ul>
-      <p style="margin-top:16px">For the event itself I am producing an AI short film, screening to an audience of three hundred, and thirty-five stage visuals, one for each contestant, looping behind her as she speaks about her culture and her country. I am also running an AI booth on the floor, where guests generate their own portraits as kings and queens, and working the sponsor relationships behind the event.</p>
-      <p>The direction refuses literal symbolism. No flags, no postcards. Each woman's story becomes an environment instead: wheat and woven thread for Moldova, a breathing celestial field for Cosmic Shakti, water and mist for Seattle. Because these run live behind a person rather than on a screen alone, brightness is controlled, the center of frame is kept deliberately quiet where she stands, and movement is pushed to the outer edges so the costume and the speaker hold the eye. AI generates every frame; I direct, review, and approve each one.</p>
+      <p style="margin-top:16px">For the event: an AI short film for an audience of three hundred, thirty-five stage visuals looping behind each contestant, and an AI portrait booth on the floor.</p>
+      <p>The direction refuses literal symbolism. No flags, no postcards. Each woman's story becomes an environment instead. Because these run live behind a person, brightness is controlled and the center of frame stays quiet where she stands.</p>
       <a class="watch" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">Watch the films ↗</a>
     </div>
     <figure class="gallery">
@@ -356,9 +358,8 @@
       <h3>Testing the water before the bigger bet</h3>
       <div class="meta-line">Feedo · Video-Feedback SaaS · Brand, Product Design &amp; Strategy</div>
       <span class="status">Built · validated · capital redirected</span>
-      <p>Feedo is a working video-feedback platform. I owned the brand and the product design: the identity and logo system, and the full interface, prototyped in Lovable in 2025 before a developer took it into production. Built with AI inside a single month, launched, and run live for six months with fifty active users, validated against more than two hundred conversations with art editors. On ease of use it does what Frame.io is doing now, and we had it working first.</p>
-      <p>Building it that fast was the strategy. One month of real product bought better market intelligence than any forecast would have: what editors actually reach for, what the next AI layer would cost to run, and how the category reshaped once Adobe acquired Frame.io. Read together, those signals pointed to an addressable market that would not justify the scale of investment the next phase required.</p>
-      <p>I redirected the studio's capital and capacity toward the returns that were there, and kept the platform, the codebase, and the intelligence. That approach now governs how I take on any product: build a small, real version, let the market answer, and commit hard once it does. It is the same method running underneath the health platform today.</p>
+      <p>Feedo is a working video-feedback platform. Brand and interface mine, prototyped in Lovable before a developer took it to production. Built with AI inside a month, live for six months, fifty active users, two hundred interviews behind it. On ease of use it does what Frame.io is doing now, and we had it working first.</p>
+      <p>Building it that fast was the strategy. One month of real product bought better intelligence than any forecast, and it said the market would not justify the next phase. So I moved the capital toward the returns that were there and kept the codebase. Same method running under the health platform today.</p>
     </div>
     <figure class="shot"><img src="case-05-feedo.png" alt="Feedo identity and the live product: workspaces, timeline comments, frame annotation"><figcaption>Identity and the working product</figcaption></figure>
   </div>
@@ -368,31 +369,63 @@
 <section id="work"><div class="wrap">
   <div class="sechead"><span class="label">Featured Work</span></div>
   <div class="index">
-    <a class="row" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener"><h4>AI with Cahn Studios<span class="ext">↗</span></h4><p>Everything the studio is making now. Campaign films, story pieces, motion, process.</p><div class="yr">Ongoing</div></a>
-    <a class="row" href="https://deliriousinnewyork.site" target="_blank" rel="noopener"><h4>Delirious in New York<span class="ext">↗</span></h4><p>An AI short film with its own release site. Submitted to the festival circuit, with a second entering now.</p><div class="yr">2026</div></a>
-    <a class="row" href="https://www.behance.net/gallery/199262053/Book-Cover-SystemBook-Identity-Visual-Narrative" target="_blank" rel="noopener"><h4>Book covers, twice awarded<span class="ext">↗</span></h4><p>World Book Fair and the Oxford Book Store Prize, both for Rupa Publications, both in the same year.</p><div class="yr">2024</div></a>
-    <a class="row" href="https://feedopro.com" target="_blank" rel="noopener"><h4>Feedo Pro<span class="ext">↗</span></h4><p>A video-feedback SaaS. Brand identity and interface design mine, prototyped in Lovable, then built with AI and launched inside a month. Six months live, fifty active users, 200+ user interviews.</p><div class="yr">2025</div></a>
-    <a class="row" href="https://www.behance.net/gallery/198786183/SwissIndia-75th-Anniversary-Visual-Campaign" target="_blank" rel="noopener"><h4>Swiss &amp; India: 75 Years<span class="ext">↗</span></h4><p>Two animated films marking 75 years of Indo-Swiss relations, screened to an audience of fifty thousand.</p><div class="yr">2023</div></a>
-    <a class="row" href="https://www.behance.net/gallery/199248247/Nestl-Wall-Art-2022-Graphics-Brand-Expression" target="_blank" rel="noopener"><h4>Nestlé and Lenskart, at wall scale<span class="ext">↗</span></h4><p>Thirty feet and fifteen. Brand identity compressed into public art, in spaces thousands of employees and visitors pass daily.</p><div class="yr">2022</div></a>
-    <a class="row" href="https://www.behance.net/gallery/199791923/Pernod-Ricard-FacesExperiential-Wall-ArtBrand-Culture" target="_blank" rel="noopener"><h4>Pernod Ricard and Urban Company<span class="ext">↗</span></h4><p>Experiential wall art and narrative brand graphics, made for the inside of a company rather than its advertising.</p><div class="yr">2022</div></a>
-    <div class="row"><h4>Save the Children</h4><p>A three-part comic series on political literacy, built to teach civic process to children with no access to it. It reached over a thousand.</p><div class="yr">2021</div></div>
-    <div class="row"><h4>Find Your Story. Build Your Strategy.</h4><p>A paid two-hour intensive, twelve seats. Story, algorithm mechanics, content architecture, and an AI workflow, built live. Each participant leaves with a thirty-day strategy of their own.</p><div class="yr">2026</div></div>
-    <div class="row"><h4>Tasveer Film Festival</h4><p>Creative collaboration with Seattle's South Asian film festival, alongside production work on Delirious in New York.</p><div class="yr">2026</div></div>
-    <div class="row"><h4>Batch image-resizing engine</h4><p>An AI tool built for Sirona Hygiene, delivering 99% accuracy ahead of comparable products reaching market. IP retained by the studio.</p><div class="yr">2025</div></div>
-    <div class="row"><h4>Cahn's AI Canvas</h4><p>A newsletter on AI and creativity. Eight hundred readers in the first year.</p><div class="yr">Ongoing</div></div>
-    <div class="row"><h4>Talks &amp; research</h4><p>Seattle Desi TV · Augmented AI podcast · YOU Summit panelist · contributor to "Mothers Speak," a qualitative study in IJNRD.</p><div class="yr">Ongoing</div></div>
+    <a class="row" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener"><h4>AI with Cahn Studios<span class="ext">&#8599;</span></h4><p>Campaign films, motion, process</p><div class="yr">Ongoing</div></a>
+    <a class="row" href="https://deliriousinnewyork.site" target="_blank" rel="noopener"><h4>Delirious in New York<span class="ext">&#8599;</span></h4><p>AI short film, festival circuit</p><div class="yr">2026</div></a>
+    <a class="row" href="https://www.behance.net/gallery/199262053/Book-Cover-SystemBook-Identity-Visual-Narrative" target="_blank" rel="noopener"><h4>Book covers, twice awarded<span class="ext">&#8599;</span></h4><p>World Book Fair and Oxford Book Store Prize, same year</p><div class="yr">2024</div></a>
+    <a class="row" href="https://feedopro.com" target="_blank" rel="noopener"><h4>Feedo Pro<span class="ext">&#8599;</span></h4><p>Video-feedback SaaS. Brand, interface, launch</p><div class="yr">2025</div></a>
+    <a class="row" href="https://www.behance.net/gallery/198786183/SwissIndia-75th-Anniversary-Visual-Campaign" target="_blank" rel="noopener"><h4>Swiss &amp; India: 75 Years<span class="ext">&#8599;</span></h4><p>Two animated films, 50,000 viewers</p><div class="yr">2023</div></a>
+    <a class="row" href="https://www.behance.net/gallery/199248247/Nestl-Wall-Art-2022-Graphics-Brand-Expression" target="_blank" rel="noopener"><h4>Nestl&eacute; and Lenskart, at wall scale<span class="ext">&#8599;</span></h4><p>Brand identity as public art, thirty feet and fifteen</p><div class="yr">2022</div></a>
+    <a class="row" href="https://www.behance.net/gallery/199791923/Pernod-Ricard-FacesExperiential-Wall-ArtBrand-Culture" target="_blank" rel="noopener"><h4>Pernod Ricard and Urban Company<span class="ext">&#8599;</span></h4><p>Experiential wall art and narrative graphics</p><div class="yr">2022</div></a>
+    <div class="row"><h4>Save the Children</h4><p>Three-part comic on political literacy, reached 1,000+ children</p><div class="yr">2021</div></div>
+    <div class="row"><h4>Find Your Story. Build Your Strategy.</h4><p>Paid intensive, twelve seats, thirty-day strategy each</p><div class="yr">2026</div></div>
+    <div class="row"><h4>Tasveer Film Festival</h4><p>Creative collaboration, Seattle South Asian film festival</p><div class="yr">2026</div></div>
+    <div class="row"><h4>Batch image-resizing engine</h4><p>AI tool for Sirona Hygiene, 99% accuracy, IP retained</p><div class="yr">2025</div></div>
+    <div class="row"><h4>Cahn's AI Canvas</h4><p>Newsletter on AI and creativity, 800 readers in year one</p><div class="yr">Ongoing</div></div>
+    <div class="row"><h4>Talks &amp; research</h4><p>Seattle Desi TV &middot; Augmented AI &middot; YOU Summit &middot; IJNRD contributor</p><div class="yr">Ongoing</div></div>
+  </div>
+</div></section>
+
+<section id="films"><div class="wrap">
+  <div class="sechead">
+    <span class="label">Films</span>
+    <h2 class="craft-line">AI generates every frame. The direction is mine.</h2>
+  </div>
+  <div class="player">
+    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUypYVPjUN5TSpMZkGWlwqTw&amp;rel=0"
+            title="Films by Cahn Studios" loading="lazy" allowfullscreen
+            allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  <div class="playerlinks">
+    <a href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">All films on YouTube ↗</a>
+    <a href="https://deliriousinnewyork.site" target="_blank" rel="noopener">Delirious in New York ↗</a>
+  </div>
+</div></section>
+
+<section id="craft"><div class="wrap">
+  <div class="sechead">
+    <span class="label">The Hand</span>
+    <h2 class="craft-line">Every system I design is drawn before it is built.</h2>
+  </div>
+  <div class="craft">
+    <figure><img src="craft-01-paris-cover.jpg" alt="Clearly Invisible in Paris, front cover"><figcaption>Clearly Invisible in Paris &middot; Rupa</figcaption></figure>
+    <figure><img src="craft-03-haveli.jpg" alt="The Haveli, illustrated chapter opener spread"><figcaption>The Haveli &middot; chapter opener</figcaption></figure>
+    <figure><img src="craft-02-namma.jpg" alt="Namma Bangalore by Shoba Narayan, cover"><figcaption>Namma Bangalore &middot; Oxford Book Store Prize 2024</figcaption></figure>
+    <figure><img src="craft-06-salesgirl.jpg" alt="Mis(s)adventures of a Salesgirl by Aashisha Chakraborty, cover"><figcaption>Mis(s)adventures of a Salesgirl &middot; Best Book Cover, World Book Fair 2024</figcaption></figure>
+    <figure><img src="craft-04-charanik.jpg" alt="Charanik, painted landscape with two walkers"><figcaption>Charanik &middot; editorial illustration</figcaption></figure>
+    <figure><img src="craft-05-aloft.jpg" alt="Aloft and Unbound, paragliders over an alpine valley"><figcaption>Aloft and Unbound &middot; editorial illustration</figcaption></figure>
   </div>
 </div></section>
 
 <section id="about"><div class="wrap">
   <div class="sechead"><span class="label">About</span></div>
   <div class="about">
-    <img src="portrait.jpg" alt="Aditi Bhandari" style="width:100%;display:block">
+    <img src="portrait.jpg" alt="Aditi Bhandari" style="width:100%;display:block" onerror="this.onerror=null;this.src='PORTRAIT.jpg'">
     <div>
-      <p>I am a creative executive and AI strategist based in Seattle, with 15+ years across brand, product, and film, and three ventures founded and run.</p>
-      <p>My education runs in two directions: a B.Tech (Hons) in Computer Science Engineering, then a Masters in Animation from the Academy of Art University in San Francisco. A trained artist and an engineer, and I have never treated those as separate careers. In practice it means I hold a systems conversation with an engineering team and an art-direction conversation with a film crew on the same day, and neither is a translation exercise. It is also why my strategy work tends to survive execution: I have usually built the thing I am arguing for.</p>
-      <p>At Cahn Studios, the AI studio I co-founded, I architect AI products, direct brands, and build the teams that deliver them. Before Seattle I co-founded Arteq Studios in Gurgaon and spent five years leading a team of eight through more than five hundred pieces of work for Nestlé, Lenskart, Urban Company, the Embassy of Switzerland, and Rupa Publications, across twelve countries. Two book covers from that period won national awards in the same year.</p>
-      <p>I continue to draw, and I teach drawing at Seattle Art Circle. My thinking is shaped more by history and psychology than by design trends, which is why I read every brief as a question about people before it is a question about craft. I work from the position that the next decade's creative organizations will be AI-native, and I would rather build them than observe them.</p>
+      <p>Creative executive and AI strategist in Seattle. 15+ years across brand, product, and film, and three ventures founded and run.</p>
+      <p>My education runs in two directions: a B.Tech (Hons) in Computer Science Engineering, then a Masters in Animation from the Academy of Art University. A trained artist and an engineer, never separate careers. It means I hold a systems conversation with engineers and an art-direction conversation with a film crew on the same day. It is also why my strategy survives execution: I have usually built the thing I am arguing for.</p>
+      <p>At Cahn Studios I architect AI products, direct brands, and build the teams that deliver them. Before Seattle I co-founded Arteq Studios in Gurgaon and led a team of eight through five hundred pieces of work for Nestl&eacute;, Lenskart, Urban Company, the Embassy of Switzerland, and Rupa Publications.</p>
+      <p>I still draw, and I teach drawing at Seattle Art Circle. I work from the position that the next decade's creative organizations will be AI-native, and I would rather build them than observe them.</p>
     </div>
   </div>
 </div></section>
