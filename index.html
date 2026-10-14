@@ -34,7 +34,7 @@
   .navlinks a:hover { color: var(--black); }
 
   /* Hero */
-  .hero { padding: 108px 0 118px; }
+  .hero { padding: 100px 0 92px; }
   .hero .label { margin-bottom: 30px; }
   .hero h1 { font-size: clamp(38px, 5.6vw, 68px); line-height: 1.05; max-width: 22ch; font-weight: 500; }
   .hero .sub { margin-top: 32px; max-width: 50ch; font-size: 17.5px; color: var(--grey-1); }
@@ -96,12 +96,39 @@
   .playerlinks a { font-size: 14px; border-bottom: 1px solid var(--grey-3); padding-bottom: 2px; }
   .playerlinks a:hover { border-color: var(--black); }
   .craft-line { font-size: clamp(24px, 3vw, 34px); font-weight: 500; max-width: 22ch; margin-top: 6px; }
-  .craft { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px; }
-  .craft figure { display: flex; flex-direction: column; }
-  .craft img { width: 100%; height: 300px; object-fit: cover; object-position: top center; display: block; background: var(--grey-4); }
   .craft figcaption { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 11px; }
-  @media (max-width: 860px) { .craft { grid-template-columns: 1fr 1fr; } .craft img { height: 230px; } }
-  @media (max-width: 520px) { .craft { grid-template-columns: 1fr; } }
+
+  /* --- full bleed --- */
+  .bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+
+  /* --- craft: true proportions, masonry --- */
+  .craft { column-count: 3; column-gap: 24px; display: block; }
+  .craft figure { break-inside: avoid; margin-bottom: 34px; display: block; }
+  .craft img { width: 100%; height: auto; object-fit: none; display: block; background: var(--grey-4); }
+  @media (max-width: 860px) { .craft { column-count: 2; } }
+  @media (max-width: 520px) { .craft { column-count: 1; } }
+
+  /* --- work gallery --- */
+  .workgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .workgrid a { position: relative; display: block; overflow: hidden; background: var(--grey-4); aspect-ratio: 4/3; }
+  .workgrid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.6,.2,1); }
+  .workgrid a:hover img { transform: scale(1.04); }
+  .workgrid .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 16px;
+    background: linear-gradient(transparent, rgba(15,15,15,.78)); color: #fcfcfc; }
+  .workgrid .cap b { display: block; font-family: 'Inter Tight'; font-weight: 500; font-size: 15px; letter-spacing: -0.01em; }
+  .workgrid .cap span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: .72; }
+  @media (max-width: 860px) { .workgrid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .workgrid { grid-template-columns: 1fr; } }
+
+  /* --- sticky case visuals --- */
+  @media (min-width: 861px) {
+    .case > figure, .case > .panel { position: sticky; top: 104px; }
+  }
+
+  /* --- scroll reveal --- */
+  .rv { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.6,.2,1); }
+  .rv.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
   .panel { border: 1px solid var(--grey-3); background: #fff; }
   .panel-head { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); padding: 18px 22px 0; }
   .curve { width: 100%; height: 74px; display: block; margin-top: 14px; }
@@ -160,7 +187,7 @@
   <a class="name" href="#top">Aditi&nbsp;&nbsp;Bhandari</a>
   <div class="navlinks">
     <a href="#practice">What I Do</a>
-    <a href="#principles">How I Work</a>
+    <a href="#principles">How I Run a Team</a>
     <a href="#ventures">Leadership</a>
     <a href="#case-studies">Case Studies</a>
     <a href="#work">Work</a>
@@ -178,10 +205,10 @@
   <a class="down" href="#case-studies">Case studies &#8595;</a>
 </div></header>
 
-<div class="wrap">
-  <figure class="banner">
+<div class="bleed">
+  <figure class="banner rv">
     <img src="banner-paris.jpg" alt="Wraparound cover painting for Clearly Invisible in Paris: Haussmann facade, red awning, aerialist descending on white silk">
-    <figcaption>Wraparound cover painting &middot; <i>Clearly Invisible in Paris</i>, Koël Purie Rinchet &middot; Rupa Publications</figcaption>
+    <figcaption class="wrap" style="padding-top:0">Wraparound cover painting &middot; <i>Clearly Invisible in Paris</i>, Koël Purie Rinchet &middot; Rupa Publications</figcaption>
   </figure>
 </div>
 
@@ -198,12 +225,12 @@
     <div>
       <span class="n">01</span>
       <h3>AI film &amp;<br>video workflows</h3>
-      <p>Films, campaigns, and stage work made with generative tools, and the pipelines that let a small team produce at volume. AI makes the frames. The direction, the story, and the standard are mine.</p>
+      <p>Films, campaigns, and stage work made with generative tools, and the pipelines that let a small team work at a scale that used to need a department, without burning out to do it. AI makes the frames. The direction, the story, and the standard are mine.</p>
     </div>
     <div>
       <span class="n">02</span>
       <h3>AI strategy &amp;<br>product architecture</h3>
-      <p>Use case, system design, interface, guardrails, and the commercial model underneath. I take an idea to the point where engineers can build it and investors can fund it.</p>
+      <p>Use case, system design, interface, and guardrails. I take an idea from a sentence to a specification an engineering team can build from, and I stay with it through the design of what users actually see.</p>
     </div>
     <div>
       <span class="n">03</span>
@@ -213,35 +240,35 @@
     <div>
       <span class="n">04</span>
       <h3>Building &amp;<br>leading teams</h3>
-      <p>Hiring, training, and directing creative talent, in my own studios and inside other people's organizations. Standards that outlast my involvement.</p>
+      <p>Hiring, training, and directing creative talent, in my own studios and inside other people's organizations. I would rather raise the standard of the people doing the work than do all of it myself. That is why the standard outlasts me.</p>
     </div>
   </div>
 </div></section>
 
 <section id="principles"><div class="wrap">
-  <div class="sechead"><span class="label">How I Work</span></div>
+  <div class="sechead"><span class="label">How I Run a Team</span></div>
 
-  <div class="principle">
-    <h3>Outcome before spend</h3>
+  <div class="principle rv">
+    <h3>Direction, then room</h3>
     <div>
-      <p>Build a small real version, read what the market says, then commit. Speed to evidence is the advantage. Conviction follows the evidence.</p>
-      <span class="ev">Evidence: Feedo, below</span>
+      <p>I set the standard and the direction, then hand over execution. The YOU Summit campaign runs across nine channels and is made by a student team I trained. I review it. I do not rewrite it, because rewriting someone's work teaches them nothing.</p>
+      <span class="ev">YOU Summit &middot; nine channels &middot; student team</span>
     </div>
   </div>
 
-  <div class="principle">
-    <h3>Strategy that is current, not remembered</h3>
+  <div class="principle rv">
+    <h3>A review gate, not a bottleneck</h3>
     <div>
-      <p>Platform mechanics change every quarter and most marketing advice is eighteen months stale. I rebuild against what is working now. That is why it pays back.</p>
-      <span class="ev">Evidence: 393% organic growth, zero paid media</span>
+      <p>Everything passes me inside twenty-four hours. Playbooks, brand guidelines and a versioned template library mean most of it passes first time, which is the point. The standard holds when I am not in the room.</p>
+      <span class="ev">24-hour turnaround &middot; nine platforms &middot; one standard</span>
     </div>
   </div>
 
-  <div class="principle">
-    <h3>Ownership, and the deadline</h3>
+  <div class="principle rv">
+    <h3>The date is part of the brief</h3>
     <div>
-      <p>I hold the standard and the date at the same time. Across fifteen years and three ventures, the work has shipped when it was promised.</p>
-      <span class="ev">Evidence: 80%+ client retention across 50+ brands</span>
+      <p>A deadline is a creative constraint, not an administrative one. Across fifteen years and three studios the work has gone out when it was promised, and teams I have led have not needed heroics to get there.</p>
+      <span class="ev">80%+ client retention across 50+ brands</span>
     </div>
   </div>
 
@@ -250,22 +277,22 @@
 <section id="ventures"><div class="wrap">
   <div class="sechead"><span class="label">Leadership</span></div>
   <div>
-    <div class="vent">
+    <div class="vent rv">
       <div><h4>YOU Summit</h4><div class="role">Founding Creative &amp; Design Partner</div></div>
-      <p>Creative lead for a 1,500-attendee AI conference at the University of Washington. I set the brand standard, authored the 107-day nine-channel strategy, and train and direct the student team that executes it. An organization I do not own, running to a standard I hold.</p>
+      <p>Creative lead for a 1,500-attendee AI conference at the University of Washington. I set the brand standard, authored the 107-day nine-channel strategy, and train and direct the student team that makes it. The summit exists to make young people confident with AI, so the campaign is built by the people it is for. An organization I do not own, running to a standard I hold.</p>
       <div class="yr">2026</div>
     </div>
-    <div class="vent">
+    <div class="vent rv">
       <div><h4>Arteq Studios</h4><div class="role">Co-Founder &amp; Chief Art Director &middot; Gurgaon</div></div>
       <p>Led an eight-person creative team through five consecutive years of revenue growth, delivering 500+ works for 50+ brands across India, the US, Singapore, and the UAE. Nestl&eacute;, Lenskart, Urban Company, Pernod Ricard, the Embassy of Switzerland, Rupa Publications. 80%+ client retention, two national awards.</p>
       <div class="yr">2019 &ndash; 2024</div>
     </div>
-    <div class="vent">
+    <div class="vent rv">
       <div><h4>Cahn Studios</h4><div class="role">Co-Founder &amp; CEO &middot; Seattle</div></div>
-      <p>AI studio carrying full P&amp;L responsibility. Revenue-positive from year one on a recurring client base, five active engagements across health, events, education, and consumer. I hire the team, hold the review gate, and answer for the outcome.</p>
+      <p>AI studio carrying full P&amp;L responsibility. Revenue-positive from year one on a recurring client base, five active engagements across health, events, education, and consumer. I hire the team, hold the review gate, and make sure nobody is guessing what good looks like.</p>
       <div class="yr">2024 &ndash; present</div>
     </div>
-    <div class="vent">
+    <div class="vent rv">
       <div><h4>King Cha</h4><div class="role">Founder &amp; Design Director &middot; India</div></div>
       <p>Consumer brand taken from zero to sustained annual sales on design-led identity and AI-assisted campaigns. Pursuing FDI approval for international expansion.</p>
       <div class="yr">2022 &ndash; present</div>
@@ -276,7 +303,7 @@
 <section id="case-studies"><div class="wrap">
   <div class="sechead"><span class="label">Selected Case Studies</span></div>
 
-  <div class="case">
+  <div class="case rv">
     <div class="num">01</div>
     <div>
       <h3>Authority is not distribution</h3>
@@ -309,19 +336,19 @@
     </figure>
   </div>
 
-  <div class="case">
+  <div class="case rv">
     <div class="num">02</div>
     <div>
       <h3>Restraint as a feature</h3>
       <div class="meta-line">Preventive Health Platform · Product Architecture · Under NDA · 2026</div>
       <span class="status">Design complete · build next</span>
       <p>Generative models improvise. Medicine cannot. So the system generates nothing in its first phase: every response is a protocol the physician has approved, selected deterministically by a rules engine and reviewed in his dashboard before it reaches a member. Delivery runs over WhatsApp, because nobody should download an app to be cared for.</p>
-      <p>I designed it end to end, built the commercial case behind it, recruited the engineering team, and ran the first market test myself.</p>
+      <p>I designed it end to end, assembled the engineering team, and ran the first live test with real patients myself.</p>
     </div>
     <figure class="shot"><img src="case-02-ai-physician.png" alt="System architecture: intake, rules engine, clinician review, delivery"><figcaption>Deterministic architecture and guardrails</figcaption></figure>
   </div>
 
-  <div class="case">
+  <div class="case rv">
     <div class="num">03</div>
     <div>
       <h3>A brand that runs on a system</h3>
@@ -333,7 +360,7 @@
     <figure class="shot"><img src="case-03-you-summit-brandboard.png" alt="YOU Summit brand system: palette, type, template library, operating model"><figcaption>Brand system and template library</figcaption></figure>
   </div>
 
-  <div class="case">
+  <div class="case rv">
     <div class="num">04</div>
     <div>
       <h3>The campaign came before the stage</h3>
@@ -344,8 +371,9 @@
         <li>15 campaign videos</li>
         <li>35 contestants signed up</li>
         <li>32+ sponsors secured</li>
+        <li>350+ tickets sold against 300 seats</li>
       </ul>
-      <p style="margin-top:16px">For the event: an AI short film for an audience of three hundred, thirty-five stage visuals looping behind each contestant, and an AI portrait booth on the floor.</p>
+      <p style="margin-top:16px">The room sold past capacity: 350 tickets against 300 seats. For the night itself, an AI short film, thirty-five stage visuals looping behind each contestant as she speaks, and an AI portrait booth on the floor.</p>
       <p>The direction refuses literal symbolism. No flags, no postcards. Each woman's story becomes an environment instead. Because these run live behind a person, brightness is controlled and the center of frame stays quiet where she stands.</p>
       <a class="watch" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">Watch the films ↗</a>
     </div>
@@ -358,14 +386,14 @@
     </figure>
   </div>
 
-  <div class="case">
+  <div class="case rv">
     <div class="num">05</div>
     <div>
       <h3>Testing the water before the bigger bet</h3>
       <div class="meta-line">Feedo · Video-Feedback SaaS · Brand, Product Design &amp; Strategy</div>
       <span class="status">Built · validated · capital redirected</span>
       <p>Feedo is a working video-feedback platform. Brand and interface mine, prototyped in Lovable before a developer took it to production. Built with AI inside a month, live for six months, fifty active users, two hundred interviews behind it. On ease of use it does what Frame.io is doing now, and we had it working first.</p>
-      <p>Building it that fast was the strategy. One month of real product bought better intelligence than any forecast, and it said the market would not justify the next phase. So I moved the capital toward the returns that were there and kept the codebase. Same method running under the health platform today.</p>
+      <p>Six months of real users told us what no amount of planning would have: exactly where the product was better than what existed, and where a category consolidating around Adobe left no room for us. We stopped building and kept the work. The identity, the interface, and what we learned about how editors actually review all carried into the health platform.</p>
     </div>
     <figure class="shot"><img src="case-05-feedo.png" alt="Feedo identity and the live product: workspaces, timeline comments, frame annotation"><figcaption>Identity and the working product</figcaption></figure>
   </div>
@@ -373,15 +401,42 @@
 </div></section>
 
 <section id="work"><div class="wrap">
-  <div class="sechead"><span class="label">Featured Work</span></div>
+  <div class="sechead"><span class="label">Selected Work</span></div>
+</div>
+<div class="bleed">
+  <div class="workgrid rv">
+    <a href="https://www.behance.net/gallery/199246757/Lenskart-Murals-Retail-Visual-Identity-Experience" target="_blank" rel="noopener">
+      <img src="work-01-lenskart.jpg" alt="Lenskart Murals" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/7bae80199246757.Y3JvcCwyMDc5LDE2MjYsNDczLDEyMDQ.jpg'">
+      <span class="cap"><b>Lenskart Murals</b><span>Retail visual identity &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/199248247/Nestl-Wall-Art-2022-Graphics-Brand-Expression" target="_blank" rel="noopener">
+      <img src="work-02-nestle.jpg" alt="Nestl&eacute; Wall Art" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/b0444c199248247.Y3JvcCwzMDI0LDIzNjUsMCwzMjk.jpeg'">
+      <span class="cap"><b>Nestl&eacute; Wall Art</b><span>Brand expression at wall scale &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/199791923/Pernod-Ricard-FacesExperiential-Wall-ArtBrand-Culture" target="_blank" rel="noopener">
+      <img src="work-03-pernod.jpg" alt="Pernod Ricard Faces" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/954fff199791923.Y3JvcCwxMjkwLDEwMDksMCw0NTY.png'">
+      <span class="cap"><b>Pernod Ricard Faces</b><span>Experiential wall art &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/198786183/SwissIndia-75th-Anniversary-Visual-Campaign" target="_blank" rel="noopener">
+      <img src="work-04-swissindia.jpg" alt="Swiss &amp; India: 75 Years" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/472bfd198786183.664fbd23d51c1.jpg'">
+      <span class="cap"><b>Swiss &amp; India: 75 Years</b><span>Two animated films, 50,000 viewers &middot; 2023</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/199340531/Urban-CompanyBrand-Experience-Narrative-Graphics" target="_blank" rel="noopener">
+      <img src="work-05-urban.jpg" alt="Urban Company" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/b8c495199340531.Y3JvcCwxMzgwLDEwODAsMzE3LDA.jpg'">
+      <span class="cap"><b>Urban Company</b><span>Brand experience &amp; narrative graphics &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/198787025/Swiss-On-Wheels-Rolling-Campaign-Visual-Strategy" target="_blank" rel="noopener">
+      <img src="work-06-swisswheels.jpg" alt="Swiss On Wheels" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/b4eda0198787025.Y3JvcCwxMDkyLDg1NCwwLDQ1MQ.jpg'">
+      <span class="cap"><b>Swiss On Wheels</b><span>Rolling campaign &amp; visual strategy &middot; 2023</span></span>
+    </a>
+  </div>
+</div>
+<div class="wrap" style="margin-top:72px">
   <div class="index">
     <a class="row" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener"><h4>AI with Cahn Studios<span class="ext">&#8599;</span></h4><p>Campaign films, motion, process</p><div class="yr">Ongoing</div></a>
     <a class="row" href="https://deliriousinnewyork.site" target="_blank" rel="noopener"><h4>Delirious in New York<span class="ext">&#8599;</span></h4><p>AI short film, festival circuit</p><div class="yr">2026</div></a>
     <a class="row" href="https://www.behance.net/gallery/199262053/Book-Cover-SystemBook-Identity-Visual-Narrative" target="_blank" rel="noopener"><h4>Book covers, twice awarded<span class="ext">&#8599;</span></h4><p>World Book Fair and Oxford Book Store Prize, same year</p><div class="yr">2024</div></a>
     <a class="row" href="https://feedopro.com" target="_blank" rel="noopener"><h4>Feedo Pro<span class="ext">&#8599;</span></h4><p>Video-feedback SaaS. Brand, interface, launch</p><div class="yr">2025</div></a>
-    <a class="row" href="https://www.behance.net/gallery/198786183/SwissIndia-75th-Anniversary-Visual-Campaign" target="_blank" rel="noopener"><h4>Swiss &amp; India: 75 Years<span class="ext">&#8599;</span></h4><p>Two animated films, 50,000 viewers</p><div class="yr">2023</div></a>
-    <a class="row" href="https://www.behance.net/gallery/199248247/Nestl-Wall-Art-2022-Graphics-Brand-Expression" target="_blank" rel="noopener"><h4>Nestl&eacute; and Lenskart, at wall scale<span class="ext">&#8599;</span></h4><p>Brand identity as public art, thirty feet and fifteen</p><div class="yr">2022</div></a>
-    <a class="row" href="https://www.behance.net/gallery/199791923/Pernod-Ricard-FacesExperiential-Wall-ArtBrand-Culture" target="_blank" rel="noopener"><h4>Pernod Ricard and Urban Company<span class="ext">&#8599;</span></h4><p>Experiential wall art and narrative graphics</p><div class="yr">2022</div></a>
     <div class="row"><h4>Save the Children</h4><p>Three-part comic on political literacy, reached 1,000+ children</p><div class="yr">2021</div></div>
     <div class="row"><h4>Find Your Story. Build Your Strategy.</h4><p>Paid intensive, twelve seats, thirty-day strategy each</p><div class="yr">2026</div></div>
     <div class="row"><h4>Tasveer Film Festival</h4><p>Creative collaboration, Seattle South Asian film festival</p><div class="yr">2026</div></div>
@@ -396,7 +451,7 @@
     <span class="label">Films</span>
     <h2 class="craft-line">AI generates every frame. The direction is mine.</h2>
   </div>
-  <div class="player">
+  <div class="player rv">
     <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUypYVPjUN5TSpMZkGWlwqTw&amp;rel=0"
             title="Films by Cahn Studios" loading="lazy" allowfullscreen
             allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
@@ -413,7 +468,7 @@
     <span class="label">The Hand</span>
     <h2 class="craft-line">Every system I design is drawn before it is built.</h2>
   </div>
-  <div class="craft">
+  <div class="craft rv">
     <figure><img src="craft-01-paris-cover.jpg" alt="Clearly Invisible in Paris, front cover"><figcaption>Clearly Invisible in Paris &middot; Rupa</figcaption></figure>
     <figure><img src="craft-03-haveli.jpg" alt="The Haveli, illustrated chapter opener spread"><figcaption>The Haveli &middot; chapter opener</figcaption></figure>
     <figure><img src="craft-02-namma.jpg" alt="Namma Bangalore by Shoba Narayan, cover"><figcaption>Namma Bangalore &middot; Oxford Book Store Prize 2024</figcaption></figure>
@@ -425,13 +480,13 @@
 
 <section id="about"><div class="wrap">
   <div class="sechead"><span class="label">About</span></div>
-  <div class="about">
+  <div class="about rv">
     <img src="portrait.jpg" alt="Aditi Bhandari" style="width:100%;display:block" onerror="this.onerror=null;this.src='PORTRAIT.jpg'">
     <div>
       <p>Creative executive and AI strategist in Seattle. 15+ years across brand, product, and film, and three ventures founded and run.</p>
       <p>My education runs in two directions: a B.Tech (Hons) in Computer Science Engineering, then a Masters in Animation from the Academy of Art University. The engineering degree is not why I would build a system. It is why I can specify one, read what an engineering team tells me, and argue the trade-offs without a translator. The second degree is where the standard comes from. It is also why my strategy tends to survive execution: I have usually made the thing I am arguing for.</p>
       <p>At Cahn Studios I architect AI products, direct brands, and build the teams that deliver them. Before Seattle I co-founded Arteq Studios in Gurgaon and led a team of eight through five hundred pieces of work for Nestl&eacute;, Lenskart, Urban Company, the Embassy of Switzerland, and Rupa Publications.</p>
-      <p>I still draw, and I teach drawing at Seattle Art Circle. I work from the position that the next decade's creative organizations will be AI-native, and I would rather build them than observe them.</p>
+      <p>I still draw, and I teach drawing at Seattle Art Circle. The next decade's creative organizations will be AI-native. I would rather build one than watch it happen.</p>
     </div>
   </div>
 </div></section>
@@ -452,5 +507,19 @@
   <div class="fineprint">© 2026 Aditi Bhandari · Seattle, WA</div>
 </div></footer>
 
+<script>
+(function(){
+  var r = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    r.forEach(function(e){ e.classList.add('in'); }); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+  r.forEach(function(e){ io.observe(e); });
+})();
+</script>
 </body>
 </html>
