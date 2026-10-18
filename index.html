@@ -80,6 +80,10 @@
   .case { display: grid; grid-template-columns: 90px 1fr 1.1fr; gap: 48px; padding: 64px 0; border-top: 1px solid var(--grey-3); align-items: start; }
   .num { font-family: 'Inter Tight'; font-size: 15px; color: var(--grey-2); padding-top: 6px; }
   .case h3 { font-size: 30px; line-height: 1.15; margin-bottom: 14px; max-width: 18ch; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0 0 26px; padding: 14px 0; border-top: 1px solid var(--grey-4); border-bottom: 1px solid var(--grey-4); }
+  .facts div { font-size: 12.5px; color: var(--grey-1); line-height: 1.45; }
+  .facts span { display: block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 4px; }
+  @media (max-width: 620px) { .facts { grid-template-columns: 1fr; gap: 12px; } }
   .case .meta-line { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 28px; }
   .case p { color: var(--grey-1); margin-bottom: 14px; max-width: 58ch; }
   .case ul { list-style: none; margin: 20px 0 0; }
@@ -102,11 +106,11 @@
   .bleed { width: 100vw; margin-left: calc(50% - 50vw); }
 
   /* --- craft: true proportions, masonry --- */
-  .craft { column-count: 3; column-gap: 24px; display: block; }
-  .craft figure { break-inside: avoid; margin-bottom: 34px; display: block; }
-  .craft img { width: 100%; height: auto; object-fit: none; display: block; background: var(--grey-4); }
-  @media (max-width: 860px) { .craft { column-count: 2; } }
-  @media (max-width: 520px) { .craft { column-count: 1; } }
+  .craft { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+  .craft figure { margin: 0; }
+  .craft img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; background: var(--grey-4); }
+  .craft figcaption { display: none; }
+  .craftnote { margin-top: 22px; font-size: 12.5px; color: var(--grey-1); max-width: 62ch; }
 
   /* --- work gallery --- */
   .workgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
@@ -131,14 +135,22 @@
   @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
   .panel { border: 1px solid var(--grey-3); background: #fff; }
   .panel-head { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); padding: 18px 22px 0; }
-  .curve { width: 100%; height: 74px; display: block; margin-top: 14px; }
-  .panel .stats { display: grid; grid-template-columns: 1fr 1fr; }
-  .panel .stats div { padding: 18px 22px; border-top: 1px solid var(--grey-4); }
-  .panel .stats div:nth-child(odd) { border-right: 1px solid var(--grey-4); }
-  .panel .stats b { display: block; font-family: 'Inter Tight'; font-weight: 500; font-size: 25px; letter-spacing: -0.02em; line-height: 1.1; }
-  .panel .stats span { display: block; margin-top: 5px; font-size: 12.5px; color: var(--grey-1); line-height: 1.4; }
+  .curve { width: 100%; height: 48px; display: block; margin-top: 10px; }
+  .panel .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .panel .stats div { padding: 12px 18px; border-top: 1px solid var(--grey-4); }
+  .panel .stats div:not(:nth-child(3n)) { border-right: 1px solid var(--grey-4); }
+  .panel .stats b { display: block; font-family: 'Inter Tight'; font-weight: 500; font-size: 17px; letter-spacing: -0.01em; line-height: 1.15; }
+  .panel .stats span { display: block; margin-top: 3px; font-size: 11.5px; color: var(--grey-2); line-height: 1.35; }
   .panel figcaption { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); padding: 14px 22px 16px; border-top: 1px solid var(--grey-4); }
   .shot figcaption { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); margin-top: 10px; }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 10px 0 30px; }
+  .strip figure { margin: 0; position: relative; }
+  .strip video, .strip img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--black); }
+  .strip figcaption { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 9px; }
+  .strip.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 860px) { .strip.three { grid-template-columns: 1fr 1fr; } }
+  .stripnote { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 64px; }
+  @media (max-width: 860px) { .strip { grid-template-columns: 1fr 1fr; } }
   .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
   .gallery img { width: 100%; display: block; }
   .gallery figcaption { grid-column: 1 / -1; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); margin-top: 8px; }
@@ -186,9 +198,9 @@
 <nav><div class="wrap navbar">
   <a class="name" href="#top">Aditi&nbsp;&nbsp;Bhandari</a>
   <div class="navlinks">
+    <a href="#films">Films</a>
     <a href="#case-studies">Case Studies</a>
     <a href="#work">Work</a>
-    <a href="#films">Films</a>
     <a href="#craft">Craft</a>
     <a href="#practice">What I Do</a>
     <a href="#principles">How I Run a Team</a>
@@ -201,7 +213,7 @@
 <header class="hero" id="top"><div class="wrap">
   <div class="label">Creative Executive &middot; AI Strategist &middot; Seattle</div>
   <h1>Design, direction, and decision are mine. AI keeps up.</h1>
-  <p class="sub">Fifteen years leading creative teams across brand, product, and film. Now building the AI video workflows the industry is rebuilding itself around.</p>
+  <p class="sub">Fifteen years leading creative teams across brand, product, and film. Now directing AI film and microdrama, and the pipelines that make them at volume.</p>
   <a class="down" href="#case-studies">Case studies &#8595;</a>
 </div></header>
 
@@ -212,6 +224,9 @@
   </figure>
 </div>
 
+
+
+
 <div class="wrap"><div class="meta">
   <div><b>15+ yrs</b><span>Brand, product &amp; film</span></div>
   <div><b>50+</b><span>Global brands directed</span></div>
@@ -219,81 +234,46 @@
   <div><b>2</b><span>National design awards</span></div>
 </div></div>
 
+<section id="films"><div class="wrap">
+  <div class="sechead">
+    <span class="label">Films</span>
+    <h2 class="craft-line">AI generates every frame. The direction is mine.</h2>
+  </div>
+  <div class="player rv">
+    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UULFypYVPjUN5TSpMZkGWlwqTw&amp;rel=0"
+            title="Films by Cahn Studios" loading="lazy" allowfullscreen
+            allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  <div class="playerlinks">
+    <a href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">All films on YouTube ↗</a>
+    <a href="https://deliriousinnewyork.site" target="_blank" rel="noopener">Delirious in New York ↗</a>
+  </div>
+</div></section>
+
 <section id="case-studies"><div class="wrap">
   <div class="sechead"><span class="label">Selected Case Studies</span></div>
 
   <div class="case rv">
     <div class="num">01</div>
     <div>
-      <h3>Authority is not distribution</h3>
-      <div class="meta-line">Physician Practice · Content System · 2025 to now</div>
-      <span class="status">Live · compounding</span>
-      <p>A physician with forty-six years of clinical practice and a community of twenty-five thousand patients had almost no digital presence. The authority was established; nothing was carrying it beyond the consult room.</p>
-      <p>I built the engine that would carry it: podcasts with high-profile guests, short-form video, editorial, webinars, and a paid newsletter, structured so each format feeds the next. A webinar produces clips, clips produce subscribers, subscribers fill the following webinar. AI runs through the production pipeline, which is how a two-person studio sustains the output of a content team.</p>
-      <p>Eight months, no paid media.</p>
-      <ul>
-        <li>Paid newsletter, five months, zero unsubscribes</li>
-        <li>Flagship webinar: 101 registered, 53% live attendance</li>
-      </ul>
-    </div>
-
-    <figure class="panel">
-      <div class="panel-head">Eight months &middot; no paid media</div>
-      <svg class="curve" viewBox="0 0 300 74" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,72 L26,70 L26,66 L52,66 L52,61 L78,61 L78,58 L104,58 L104,50 L130,50 L130,45 L156,45 L156,39 L182,39 L182,30 L208,30 L208,26 L234,26 L234,19 L260,19 L260,13 L286,13 L286,6 L300,6 L300,74 L0,74 Z" fill="var(--grey-4)"/>
-        <path d="M0,72 L26,70 L26,66 L52,66 L52,61 L78,61 L78,58 L104,58 L104,50 L130,50 L130,45 L156,45 L156,39 L182,39 L182,30 L208,30 L208,26 L234,26 L234,19 L260,19 L260,13 L286,13 L286,6 L300,6" fill="none" stroke="var(--black)" stroke-width="1.2"/>
-      </svg>
-      <div class="stats">
-        <div><b>+393%</b><span>YouTube views, year over year</span></div>
-        <div><b>+866%</b><span>Watch hours</span></div>
-        <div><b>87.2%</b><span>Reach from non-followers</span></div>
-        <div><b>86.9K</b><span>Social views, last 90 days</span></div>
-        <div><b>+402%</b><span>Subscriber growth</span></div>
-        <div><b>+164%</b><span>Newsletter list, zero churn</span></div>
+      <h3>Femina</h3>
+      <div class="meta-line">AI Film &amp; Campaign Direction</div>
+      <div class="facts">
+        <div><span>Client</span>Femina USA, multicultural pageant and its sponsor network</div>
+        <div><span>Audience</span>South Asian diaspora women and families, Pacific Northwest</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 13 September 2026</div>
       </div>
-      <figcaption>Platform results, verified in-platform</figcaption>
-    </figure>
-  </div>
-
-  <div class="case rv">
-    <div class="num">02</div>
-    <div>
-      <h3>Restraint as a feature</h3>
-      <div class="meta-line">Preventive Health Platform · Product Architecture · Under NDA · 2026</div>
-      <span class="status">Design complete · build next</span>
-      <p>Generative models improvise. Medicine cannot. So the system generates nothing in its first phase: every response is a protocol the physician has approved, selected deterministically by a rules engine and reviewed in his dashboard before it reaches a member. Delivery runs over WhatsApp, because nobody should download an app to be cared for.</p>
-      <p>I designed it end to end, assembled the engineering team, and ran the first live test with real patients myself.</p>
-    </div>
-    <figure class="shot"><img src="case-02-ai-physician.png" alt="System architecture: intake, rules engine, clinician review, delivery"><figcaption>Deterministic architecture and guardrails</figcaption></figure>
-  </div>
-
-  <div class="case rv">
-    <div class="num">03</div>
-    <div>
-      <h3>A brand that runs on a system</h3>
-      <div class="meta-line">YOU Summit · Founding Creative &amp; Design Partner · University of Washington, 2–4 October 2026</div>
-      <span class="status">In flight · campaign live now</span>
-      <p>The summit exists to make young people confident with AI, so marketing it through an agency would have contradicted the premise. A student team executes it, trained and directed by me.</p>
-      <p>The identity is built to be run by people who did not design it: palette, typography, motion, voice, and a template library precise enough that a first-time contributor produces work that holds. Around it, a 107-day plan across nine channels with a review gate I clear within twenty-four hours. I also designed the AI Film Sprint that closes the final day.</p>
-    </div>
-    <figure class="shot"><img src="case-03-you-summit-brandboard.png" alt="YOU Summit brand system: palette, type, template library, operating model"><figcaption>Brand system and template library</figcaption></figure>
-  </div>
-
-  <div class="case rv">
-    <div class="num">04</div>
-    <div>
-      <h3>The campaign came before the stage</h3>
-      <div class="meta-line">Femina · AI Film &amp; Campaign Direction · Seattle, 13 September 2026</div>
       <span class="status">Campaign delivered · event upcoming</span>
-      <p>A multicultural pageant needed contestants and sponsors before it needed a stage. I directed the recruitment campaign, and several of those videos became the best-performing posts those accounts have published.</p>
+      <p>The pageant needed contestants and sponsors before it needed a stage. I directed the recruitment campaign. Several of those videos became the best posts those accounts have ever run.</p>
       <ul>
         <li>15 campaign videos</li>
         <li>35 contestants signed up</li>
         <li>32+ sponsors secured</li>
         <li>350+ tickets sold against 300 seats</li>
       </ul>
-      <p style="margin-top:16px">The room sold past capacity: 350 tickets against 300 seats. For the night itself, an AI short film, thirty-five stage visuals looping behind each contestant as she speaks, and an AI portrait booth on the floor.</p>
-      <p>The direction refuses literal symbolism. No flags, no postcards. Each woman's story becomes an environment instead. Because these run live behind a person, brightness is controlled and the center of frame stays quiet where she stands.</p>
+      <p style="margin-top:16px">It sold past capacity: 350 tickets, 300 seats. For the night, an AI short film, thirty-five stage visuals, and a booth where guests made their own portraits.</p>
+      <p>No flags, no postcards. Each woman's story becomes a place instead. These run live behind a person, so the centre of every frame stays quiet and dark where she stands.</p>
       <a class="watch" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">Watch the films ↗</a>
     </div>
     <figure class="gallery">
@@ -305,19 +285,125 @@
     </figure>
   </div>
 
+    <div class="bleed strip rv" id="femina-strip">
+    <figure><video data-src="femina-v05.mp4" poster="femina-v05.jpg" muted loop playsinline preload="none" aria-label="Lotus and still water, stage backdrop"></video></figure>
+    <figure><video data-src="femina-v07.mp4" poster="femina-v07.jpg" muted loop playsinline preload="none" aria-label="Constellation field, stage backdrop"></video></figure>
+    <figure><video data-src="femina-v08.mp4" poster="femina-v08.jpg" muted loop playsinline preload="none" aria-label="Peacock, ink and gold, stage backdrop"></video></figure>
+    <figure><video data-src="femina-v09.mp4" poster="femina-v09.jpg" muted loop playsinline preload="none" aria-label="Light over woven ground, stage backdrop"></video></figure>
+  </div>
+  <div class="wrap"><div class="stripnote">Stage backdrops, running as they run live. Four of thirty-five.</div></div>
+  <div class="bleed strip three rv" id="femina-booth">
+    <figure><video data-src="femina-booth-v1.mp4" poster="femina-booth-v1.jpg" muted loop playsinline preload="none" aria-label="A guest rendered as a queen at the AI booth"></video></figure>
+    <figure><video data-src="femina-booth-v2.mp4" poster="femina-booth-v2.jpg" muted loop playsinline preload="none" aria-label="A guest rendered as a king at the AI booth"></video></figure>
+    <figure><video data-src="femina-booth-v3.mp4" poster="femina-booth-v3.jpg" muted loop playsinline preload="none" aria-label="A guest rendered as royalty at the AI booth"></video></figure>
+  </div>
+  <div class="wrap"><div class="stripnote">The booth. Guests walked up, and walked away as kings and queens.</div></div>
+
+  <div class="case rv">
+    <div class="num">02</div>
+    <div>
+      <h3>Gurukul Stories</h3>
+      <div class="meta-line">AI Storytelling &amp; Curriculum Design</div>
+      <div class="facts">
+        <div><span>Client</span>Gurukul, a Seattle organisation teaching Indian-origin children their heritage language and culture</div>
+        <div><span>Audience</span>Children from grade one up, English at school, Hindi at home</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 2026</div>
+      </div>
+      <span class="status">First title complete &middot; series in production</span>
+      <p>Hindi classes for kids in Seattle run on books written for kids in India. The words assume a street these children have never walked down. A child listens to the story they recognise, and the story was somewhere else.</p>
+      <p>So we are making the books. Illustrated readers in Hindi, graded from first grade up, written for a child who speaks English all day and hears Hindi at home. The art is generated and directed rather than commissioned, which is the only reason a community organisation gets a library instead of four titles.</p>
+      <p>Generating images is the easy half. Holding one world across a whole series, in a script most models render badly, is the work. Every spread gets the same review as paying client work.</p>
+      <ul>
+        <li>First title done: <i>Ek Laal Gend Ka Rahasya</i>, forty pages, grade one</li>
+        <li>Characters, palette and setting held across every spread</li>
+      </ul>
+    </div>
+    <figure class="gallery">
+      <img src="gurukul-cover.jpg" alt="Cover of Ek Laal Gend Ka Rahasya, a Hindi storybook for young readers">
+      <img src="gurukul-s1.jpg" alt="Nikku and Keetu finding the red ball in the garden">
+      <img src="gurukul-s2.jpg" alt="The children and the dog running on the lawn">
+      <img src="gurukul-s3.jpg" alt="Picking tomatoes in the vegetable patch">
+      <figcaption>Ek Laal Gend Ka Rahasya &middot; first title, forty pages</figcaption>
+    </figure>
+  </div>
+
+  <div class="case rv">
+    <div class="num">03</div>
+    <div>
+      <h3>diseasefree.living</h3>
+      <div class="meta-line">Brand Identity, Website, Audience Strategy &amp; Product Architecture</div>
+      <div class="facts">
+        <div><span>Client</span><a href="https://www.instagram.com/dr.virendersodhi/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">Dr. Virender Sodhi</a>, naturopathic physician, 46 years in practice, 25,000 patients</div>
+        <div><span>Audience</span>Adults managing chronic conditions, US and India</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 2025 to now</div>
+      </div>
+      <span class="status">Audience live &middot; platform design complete</span>
+      <p>Forty-six years of clinical authority, almost none of it leaving the consult room. Behind that sat the harder problem: he wanted to build a preventive-health platform and had no audience to launch it to.</p>
+      <p>So I built the audience first. Podcasts, short video, editorial, webinars and a paid newsletter, each format feeding the next, AI running the production line so two people make what a content team makes. Reach was never the point. A warm market on launch day was.</p>
+      <p>Then the brand it would all sit under. I designed the identity and built <a href="https://diseasefree.living" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">diseasefree.living</a>: the mark, the typography, the voice, and every page of the site, written around three kinds of patient rather than one generic visitor.</p>
+      <p>Then the platform. Models improvise and medicine cannot, so it generates nothing: every answer is a protocol he approved, picked by a rules engine, checked on his dashboard before anyone sees it. It runs on WhatsApp, because nobody should download an app to be cared for. I designed it end to end and ran the first live test myself.</p>
+      <ul>
+        <li>Paid newsletter, five months, zero unsubscribes</li>
+        <li>Launch webinar: 101 registered, 53% live attendance, 100+ early adopters</li>
+      </ul>
+    </div>
+
+    <div>
+      <figure class="shot" style="margin-bottom:22px"><img src="case-dfl-brand.jpg" alt="diseasefree.living identity and homepage, built around three patient personas"><figcaption>Identity and site &middot; diseasefree.living</figcaption></figure>
+      <figure class="shot" style="margin-bottom:22px"><img src="case-02-ai-physician.png" alt="Deterministic architecture: intake, rules engine, clinician review, WhatsApp delivery"><figcaption>Deterministic architecture and clinical guardrails</figcaption></figure>
+      <figure class="panel">
+        <div class="panel-head">Audience built &middot; no paid media</div>
+        <div class="stats">
+          <div><b>+393%</b><span>YouTube views, YoY</span></div>
+          <div><b>+866%</b><span>Watch hours</span></div>
+          <div><b>87.2%</b><span>Non-follower reach</span></div>
+          <div><b>86.9K</b><span>Social views, 90 days</span></div>
+          <div><b>+402%</b><span>Subscriber growth</span></div>
+          <div><b>+164%</b><span>Newsletter, zero churn</span></div>
+        </div>
+        <figcaption>Verified in-platform</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="case rv">
+    <div class="num">04</div>
+    <div>
+      <h3>YOU Summit</h3>
+      <div class="meta-line">Founding Creative &amp; Design Partner</div>
+      <div class="facts">
+        <div><span>Client</span>YOU Summit, a 1,500-attendee AI conference</div>
+        <div><span>Audience</span>Students and early-career people entering an AI job market</div>
+        <div><span>Where &amp; when</span>University of Washington &middot; 8&ndash;10 January 2027</div>
+      </div>
+      <span class="status">Organic channel live · campaign rebuilding for January</span>
+      <p>The summit exists to make young people confident with AI. Hiring an agency to market it would have contradicted the whole premise, so a student team runs it, trained and directed by me.</p>
+      <p>The identity is built to be run by people who did not design it, with a template library precise enough that a first-timer still makes something good. I also designed the AI Film Sprint that closes the final day.</p>
+      <p>We piloted nine channels. Reddit compounded, and now reaches 333,000 views a post and climbing. When the summit moved to January I kept that one running and paused the rest. No sense spending against a date that no longer existed.</p>
+    </div>
+    <figure class="shot"><img src="case-03-you-summit-brandboard.png" alt="YOU Summit brand system: palette, type, template library, operating model"><figcaption>Brand system and template library</figcaption></figure>
+  </div>
+
   <div class="case rv">
     <div class="num">05</div>
     <div>
-      <h3>Testing the water before the bigger bet</h3>
-      <div class="meta-line">Feedo · Video-Feedback SaaS · Brand, Product Design &amp; Strategy</div>
+      <h3>Feedo</h3>
+      <div class="meta-line">Brand, Product Design &amp; Strategy</div>
+      <div class="facts">
+        <div><span>Client</span>Cahn Studios, built in-house as a product bet</div>
+        <div><span>Audience</span>Art editors and video teams reviewing cuts with clients</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 2025, six months live</div>
+      </div>
       <span class="status">Built · validated · capital redirected</span>
-      <p>Feedo is a working video-feedback platform. Brand and interface mine, prototyped in Lovable before a developer took it to production. Built with AI inside a month, live for six months, fifty active users, two hundred interviews behind it. On ease of use it does what Frame.io is doing now, and we had it working first.</p>
-      <p>Six months of real users told us what no amount of planning would have: exactly where the product was better than what existed, and where a category consolidating around Adobe left no room for us. We stopped building and kept the work. The identity, the interface, and what we learned about how editors actually review all carried into the health platform.</p>
+      <p>A working video-feedback platform. Brand and interface mine, prototyped in Lovable before a developer took it to production. Built with AI in a month, live for six, fifty active users, two hundred interviews behind it. On ease of use it does what Frame.io does now, and we had it first.</p>
+      <p>Six months of real users told us what no plan would have: where we were genuinely better, and where Adobe buying Frame.io left us no room. We stopped building and kept the work. All of it carried into the health platform.</p>
     </div>
     <figure class="shot"><img src="case-05-feedo.png" alt="Feedo identity and the live product: workspaces, timeline comments, frame annotation"><figcaption>Identity and the working product</figcaption></figure>
   </div>
 
-</div></section>
+</div>
+
+</section>
 
 <section id="work"><div class="wrap">
   <div class="sechead"><span class="label">Selected Work</span></div>
@@ -365,36 +451,30 @@
   </div>
 </div></section>
 
-<section id="films"><div class="wrap">
-  <div class="sechead">
-    <span class="label">Films</span>
-    <h2 class="craft-line">AI generates every frame. The direction is mine.</h2>
-  </div>
-  <div class="player rv">
-    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUypYVPjUN5TSpMZkGWlwqTw&amp;rel=0"
-            title="Films by Cahn Studios" loading="lazy" allowfullscreen
-            allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"></iframe>
-  </div>
-  <div class="playerlinks">
-    <a href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">All films on YouTube ↗</a>
-    <a href="https://deliriousinnewyork.site" target="_blank" rel="noopener">Delirious in New York ↗</a>
-  </div>
-</div></section>
+
 
 <section id="craft"><div class="wrap">
   <div class="sechead">
     <span class="label">The Hand</span>
-    <h2 class="craft-line">Every system I design is drawn before it is built.</h2>
+    <h2 class="craft-line">Over 300 books in three years for Rupa Publications.</h2>
   </div>
+  
   <div class="craft rv">
-    <figure><img src="craft-01-paris-cover.jpg" alt="Clearly Invisible in Paris, front cover"><figcaption>Clearly Invisible in Paris &middot; Rupa</figcaption></figure>
-    <figure><img src="craft-03-haveli.jpg" alt="The Haveli, illustrated chapter opener spread"><figcaption>The Haveli &middot; chapter opener</figcaption></figure>
-    <figure><img src="craft-02-namma.jpg" alt="Namma Bangalore by Shoba Narayan, cover"><figcaption>Namma Bangalore &middot; Oxford Book Store Prize 2024</figcaption></figure>
-    <figure><img src="craft-06-salesgirl.jpg" alt="Mis(s)adventures of a Salesgirl by Aashisha Chakraborty, cover"><figcaption>Mis(s)adventures of a Salesgirl &middot; Best Book Cover, World Book Fair 2024</figcaption></figure>
-    <figure><img src="craft-04-charanik.jpg" alt="Charanik, painted landscape with two walkers"><figcaption>Charanik &middot; editorial illustration</figcaption></figure>
-    <figure><img src="craft-05-aloft.jpg" alt="Aloft and Unbound, paragliders over an alpine valley"><figcaption>Aloft and Unbound &middot; editorial illustration</figcaption></figure>
+    <figure><img src="craft-01-paris-cover.jpg" alt="Clearly Invisible in Paris, cover" loading="lazy"><figcaption>Clearly Invisible in Paris &middot; Rupa</figcaption></figure>
+    <figure><img src="craft-06-salesgirl.jpg" alt="Mis(s)adventures of a Salesgirl, cover" loading="lazy"><figcaption>Mis(s)adventures of a Salesgirl &middot; Best Book Cover, World Book Fair 2024</figcaption></figure>
+    <figure><img src="craft-02-namma.jpg" alt="Namma Bangalore, cover" loading="lazy"><figcaption>Namma Bangalore &middot; Oxford Book Store Prize 2024</figcaption></figure>
+    <figure><img src="craft-b1-roads.jpg" alt="Ruskin Bond, Roads to Delhi, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Roads to Delhi</figcaption></figure>
+    <figure><img src="craft-b2-granny.jpg" alt="Ruskin Bond, Granny's Tales, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Granny's Tales</figcaption></figure>
+    <figure><img src="craft-b3-greatest25.jpg" alt="Ruskin Bond, Greatest 25 Stories, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Greatest 25 Stories</figcaption></figure>
+    <figure><img src="craft-b4-garden.jpg" alt="Ruskin Bond, Garden of Dreams, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Garden of Dreams</figcaption></figure>
+    <figure><img src="craft-b5-goodenglish.jpg" alt="Ruskin Bond, Good English through Stories and Verses, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Good English through Stories and Verses</figcaption></figure>
+    <figure><img src="craft-08-patriot.jpg" alt="The Psychology of a Patriot, cover" loading="lazy"><figcaption>The Psychology of a Patriot &middot; Rupa</figcaption></figure>
+    <figure><img src="craft-07-charanik-cover.jpg" alt="Charanik, The Walker, cover" loading="lazy"><figcaption>Charanik &middot; The Walker</figcaption></figure>
+    <figure><img src="craft-03-haveli.jpg" alt="The Haveli, illustrated chapter opener spread" loading="lazy"><figcaption>The Haveli &middot; chapter opener</figcaption></figure>
+    <figure><img src="craft-05-aloft.jpg" alt="Aloft and Unbound, paragliders over an alpine valley" loading="lazy"><figcaption>Aloft and Unbound &middot; editorial illustration</figcaption></figure>
   </div>
+  <p class="craftnote">Twelve shown. Five of them Ruskin Bond. Two national prizes in one year: Best Book Cover at the World Book Fair for <i>Mis(s)adventures of a Salesgirl</i>, and the Oxford Book Store Prize for <i>Namma Bangalore</i>.</p>
+  <p class="craftnote">Roughly two books a week, every week, held to one standard. I was building production systems years before there was an AI to build them with.</p>
 </div></section>
 
 <section id="practice"><div class="wrap">
@@ -402,8 +482,8 @@
   <div class="practice">
     <div>
       <span class="n">01</span>
-      <h3>AI film &amp;<br>video workflows</h3>
-      <p>Films, campaigns, and stage work made with generative tools, and the pipelines that let a small team work at a scale that used to need a department, without burning out to do it. AI makes the frames. The direction, the story, and the standard are mine.</p>
+      <h3>AI film,<br>microdrama &amp; story</h3>
+      <p>Short films, serialised vertical drama, campaigns and stage work, plus the pipelines that let a small team work at a scale that used to need a department. AI makes the frames. The direction, the story, and the standard are mine.</p>
     </div>
     <div>
       <span class="n">02</span>
@@ -429,7 +509,7 @@
   <div class="principle rv">
     <h3>Direction, then room</h3>
     <div>
-      <p>I set the standard and the direction, then hand over execution. The YOU Summit campaign runs across nine channels and is made by a student team I trained. I review it. I do not rewrite it, because rewriting someone's work teaches them nothing.</p>
+      <p>I set the standard and the direction, then hand over execution. The YOU Summit campaign is made by a student team I trained. I review it. I do not rewrite it, because rewriting someone's work teaches them nothing.</p>
       <span class="ev">YOU Summit &middot; nine channels &middot; student team</span>
     </div>
   </div>
@@ -457,8 +537,8 @@
   <div>
     <div class="vent rv">
       <div><h4>YOU Summit</h4><div class="role">Founding Creative &amp; Design Partner</div></div>
-      <p>Creative lead for a 1,500-attendee AI conference at the University of Washington. I set the brand standard, authored the 107-day nine-channel strategy, and train and direct the student team that makes it. The summit exists to make young people confident with AI, so the campaign is built by the people it is for. An organization I do not own, running to a standard I hold.</p>
-      <div class="yr">2026</div>
+      <p>Creative lead for a 1,500-attendee AI conference at the University of Washington. I set the brand standard, authored the nine-channel launch strategy, and train and direct the student team that makes it. The summit exists to make young people confident with AI, so the campaign is built by the people it is for. An organization I do not own, running to a standard I hold.</p>
+      <div class="yr">2026 &ndash; 2027</div>
     </div>
     <div class="vent rv">
       <div><h4>Arteq Studios</h4><div class="role">Co-Founder &amp; Chief Art Director &middot; Gurgaon</div></div>
@@ -519,6 +599,25 @@
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
   r.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){
+  var vs = [].slice.call(document.querySelectorAll('video[data-src]'));
+  if (!vs.length) return;
+  if (!('IntersectionObserver' in window)) {
+    vs.forEach(function(v){ v.src = v.dataset.src; v.play().catch(function(){}); }); return;
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.src) v.src = v.dataset.src;
+        v.play().catch(function(){});
+      } else if (!v.paused) { v.pause(); }
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.15 });
+  vs.forEach(function(v){ io.observe(v); });
 })();
 </script>
 </body>
