@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aditi Bhandari · Creative Executive &amp; AI Strategist</title>
+<meta name="description" content="Aditi Bhandari is a Seattle-based creative executive and AI strategist. 15+ years leading creative teams across brand, product, and film, building AI video workflows and directing the work that comes out of them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0f0f0f;
+    --grey-1: #4a4a4a;
+    --grey-2: #8a8a8a;
+    --grey-3: #d9d9d9;
+    --grey-4: #efefef;
+    --bg: #fcfcfc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--black); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Inter Tight', sans-serif; font-weight: 500; letter-spacing: -0.02em; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+  .label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-2); font-weight: 500; }
+  .hr { border: 0; border-top: 1px solid var(--grey-3); }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(252,252,252,.9); backdrop-filter: blur(10px); }
+  .navbar { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
+  .name { font-family: 'Inter Tight'; font-weight: 500; letter-spacing: 0.22em; font-size: 12.5px; text-transform: uppercase; }
+  .navlinks { display: flex; gap: 27px; }
+  .navlinks a { font-size: 13px; color: var(--grey-1); transition: color .15s; }
+  .navlinks a:hover { color: var(--black); }
+
+  /* Hero */
+  .hero { padding: 100px 0 92px; }
+  .hero .label { margin-bottom: 30px; }
+  .hero h1 { font-size: clamp(38px, 5.6vw, 68px); line-height: 1.05; max-width: 22ch; font-weight: 500; }
+  .hero .sub { margin-top: 32px; max-width: 50ch; font-size: 17.5px; color: var(--grey-1); }
+  .hero .down { display: inline-block; margin-top: 48px; font-size: 13px; color: var(--grey-2); }
+  .hero .down:hover { color: var(--black); }
+
+  /* Meta strip */
+  .meta { display: flex; gap: 72px; padding: 36px 0; border-top: 1px solid var(--grey-3); flex-wrap: wrap; }
+  .meta div b { display: block; font-family: 'Inter Tight'; font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+  .meta div span { font-size: 12px; color: var(--grey-2); }
+
+  /* Practice */
+  .practice { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; padding-top: 8px; }
+  .practice h3 { font-size: 18px; margin-bottom: 12px; line-height: 1.25; }
+  .practice p { font-size: 14px; color: var(--grey-1); }
+  .practice .n { font-size: 11px; letter-spacing: 0.16em; color: var(--grey-2); display: block; margin-bottom: 14px; }
+  @media (max-width: 860px) { .practice { grid-template-columns: 1fr 1fr; gap: 32px; } }
+  @media (max-width: 520px) { .practice { grid-template-columns: 1fr; } }
+
+  .status { display: inline-block; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-2); border: 1px solid var(--grey-3); padding: 3px 9px; margin-bottom: 14px; }
+
+  /* Principles */
+  .principle { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; padding: 30px 0; border-top: 1px solid var(--grey-4); align-items: start; }
+  .principle h3 { font-size: 21px; line-height: 1.25; max-width: 20ch; }
+  .principle p { color: var(--grey-1); font-size: 14.5px; }
+  .principle .ev { display: block; margin-top: 10px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); }
+  @media (max-width: 860px) { .principle { grid-template-columns: 1fr; gap: 12px; } }
+
+  /* Ventures */
+  .vent { display: grid; grid-template-columns: 1fr 1.4fr 150px; gap: 32px; padding: 22px 0; border-top: 1px solid var(--grey-4); align-items: baseline; }
+  .vent h4 { font-family: 'Inter Tight'; font-weight: 500; font-size: 17px; }
+  .vent .role { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px; }
+  .vent p { font-size: 14px; color: var(--grey-1); }
+  .vent .yr { font-size: 12px; color: var(--grey-2); text-align: right; }
+  @media (max-width: 860px) { .vent { grid-template-columns: 1fr; gap: 8px; } .vent .yr { text-align: left; } }
+
+  /* Sections */
+  section { padding: 110px 0 30px; }
+  .sechead { margin-bottom: 70px; }
+  .sechead .label { display: block; margin-bottom: 10px; }
+
+  /* Case studies */
+  .case { display: grid; grid-template-columns: 90px 1fr 1.1fr; gap: 48px; padding: 64px 0; border-top: 1px solid var(--grey-3); align-items: start; }
+  .num { font-family: 'Inter Tight'; font-size: 15px; color: var(--grey-2); padding-top: 6px; }
+  .case h3 { font-size: 30px; line-height: 1.15; margin-bottom: 14px; max-width: 18ch; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0 0 26px; padding: 14px 0; border-top: 1px solid var(--grey-4); border-bottom: 1px solid var(--grey-4); }
+  .facts div { font-size: 12.5px; color: var(--grey-1); line-height: 1.45; }
+  .facts span { display: block; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 4px; }
+  @media (max-width: 620px) { .facts { grid-template-columns: 1fr; gap: 12px; } }
+  .case .meta-line { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 28px; }
+  .case p { color: var(--grey-1); margin-bottom: 14px; max-width: 58ch; }
+  .case ul { list-style: none; margin: 20px 0 0; }
+  .case li { padding: 10px 0; border-top: 1px solid var(--grey-4); color: var(--grey-1); font-size: 14px; }
+  .ph { background: var(--grey-4); aspect-ratio: 4/3; display: flex; align-items: flex-end; padding: 20px; }
+  .ph span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); }
+  .shot img { width: 100%; display: block; border: 1px solid var(--grey-3); }
+  .banner { margin-top: 4px; }
+  .banner img { width: 100%; display: block; }
+  .banner figcaption { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 12px; }
+  .player { position: relative; width: 100%; aspect-ratio: 16/9; background: var(--black); }
+  .player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .playerlinks { display: flex; gap: 32px; margin-top: 22px; flex-wrap: wrap; }
+  .playerlinks a { font-size: 14px; border-bottom: 1px solid var(--grey-3); padding-bottom: 2px; }
+  .playerlinks a:hover { border-color: var(--black); }
+  .craft-line { font-size: clamp(24px, 3vw, 34px); font-weight: 500; max-width: 22ch; margin-top: 6px; }
+  .craft figcaption { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 11px; }
+
+  /* --- full bleed --- */
+  .bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+
+  /* --- craft: true proportions, masonry --- */
+  .craft { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+  .craft figure { margin: 0; }
+  .craft img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; background: var(--grey-4); }
+  .craft figcaption { display: none; }
+  .craftnote { margin-top: 22px; font-size: 12.5px; color: var(--grey-1); max-width: 62ch; }
+
+  /* --- work gallery --- */
+  .workgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .workgrid a { position: relative; display: block; overflow: hidden; background: var(--grey-4); aspect-ratio: 4/3; }
+  .workgrid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.6,.2,1); }
+  .workgrid a:hover img { transform: scale(1.04); }
+  .workgrid .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 16px;
+    background: linear-gradient(transparent, rgba(15,15,15,.78)); color: #fcfcfc; }
+  .workgrid .cap b { display: block; font-family: 'Inter Tight'; font-weight: 500; font-size: 15px; letter-spacing: -0.01em; }
+  .workgrid .cap span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: .72; }
+  @media (max-width: 860px) { .workgrid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .workgrid { grid-template-columns: 1fr; } }
+
+  /* --- sticky case visuals --- */
+  @media (min-width: 861px) {
+    .case > figure, .case > .panel { position: sticky; top: 104px; }
+  }
+
+  /* --- scroll reveal --- */
+  .rv { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.6,.2,1); }
+  .rv.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
+  .panel { border: 1px solid var(--grey-3); background: #fff; }
+  .panel-head { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); padding: 18px 22px 0; }
+  .curve { width: 100%; height: 48px; display: block; margin-top: 10px; }
+  .panel .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .panel .stats div { padding: 12px 18px; border-top: 1px solid var(--grey-4); }
+  .panel .stats div:not(:nth-child(3n)) { border-right: 1px solid var(--grey-4); }
+  .panel .stats b { display: block; font-family: 'Inter Tight'; font-weight: 500; font-size: 17px; letter-spacing: -0.01em; line-height: 1.15; }
+  .panel .stats span { display: block; margin-top: 3px; font-size: 11.5px; color: var(--grey-2); line-height: 1.35; }
+  .panel figcaption { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); padding: 14px 22px 16px; border-top: 1px solid var(--grey-4); }
+  .shot figcaption { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); margin-top: 10px; }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 10px 0 30px; }
+  .strip figure { margin: 0; position: relative; }
+  .strip video, .strip img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--black); }
+  .strip figcaption { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-top: 9px; }
+  .strip.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 860px) { .strip.three { grid-template-columns: 1fr 1fr; } }
+  .stripnote { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-2); margin-bottom: 64px; }
+  @media (max-width: 860px) { .strip { grid-template-columns: 1fr 1fr; } }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .gallery img { width: 100%; display: block; }
+  .gallery figcaption { grid-column: 1 / -1; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-2); margin-top: 8px; }
+  .watch { display: inline-block; margin-top: 22px; font-size: 14px; border-bottom: 1px solid var(--black); padding-bottom: 2px; }
+  .watch:hover { color: var(--grey-1); border-color: var(--grey-2); }
+
+  /* Work index */
+  .index { border-top: 1px solid var(--grey-3); }
+  .row { display: grid; grid-template-columns: 1fr 1.6fr 120px; gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--grey-4); align-items: baseline; }
+  .row h4 { font-family: 'Inter Tight'; font-weight: 500; font-size: 17px; letter-spacing: -0.01em; }
+  .row p { font-size: 14px; color: var(--grey-1); }
+  .row .yr { font-size: 12px; color: var(--grey-2); text-align: right; }
+  a.row:hover h4 { text-decoration: underline; text-underline-offset: 3px; }
+  .ext { color: var(--grey-2); font-size: 13px; margin-left: 6px; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; padding-top: 20px; }
+  .portrait { background: var(--grey-4); aspect-ratio: 3/4; display: flex; align-items: flex-end; padding: 20px; }
+  .about p { color: var(--grey-1); margin-bottom: 16px; max-width: 60ch; }
+
+  /* Footer */
+  footer { margin-top: 120px; background: var(--black); color: #b5b5b5; padding: 110px 0 60px; }
+  footer h2 { color: #fcfcfc; font-size: clamp(30px, 4.4vw, 52px); font-weight: 500; letter-spacing: -0.02em; max-width: 16ch; line-height: 1.1; }
+  footer .mail { display: inline-block; margin-top: 36px; color: #fcfcfc; font-size: 18px; border-bottom: 1px solid #555; padding-bottom: 3px; }
+  footer .mail:hover { border-color: #fcfcfc; }
+  .foot-links { display: flex; gap: 32px; margin-top: 72px; font-size: 13px; }
+  .foot-links a { color: #8a8a8a; }
+  .foot-links a:hover { color: #fcfcfc; }
+  .fineprint { margin-top: 56px; font-size: 11.5px; color: #5a5a5a; letter-spacing: 0.04em; }
+
+  @media (max-width: 860px) {
+    .wrap { padding: 0 22px; }
+    .case { grid-template-columns: 1fr; gap: 24px; }
+    .num { padding: 0; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .row { grid-template-columns: 1fr; gap: 6px; }
+    .row .yr { text-align: left; }
+    .navlinks { display: none; }
+    .meta { gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap navbar">
+  <a class="name" href="#top">Aditi&nbsp;&nbsp;Bhandari</a>
+  <div class="navlinks">
+    <a href="#films">Films</a>
+    <a href="#case-studies">Case Studies</a>
+    <a href="#work">Work</a>
+    <a href="#craft">Craft</a>
+    <a href="#practice">What I Do</a>
+    <a href="#principles">How I Run a Team</a>
+    <a href="#ventures">Leadership</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="label">Creative Executive &middot; AI Strategist &middot; Seattle</div>
+  <h1>Design, direction, and decision are mine. AI keeps up.</h1>
+  <p class="sub">Fifteen years leading creative teams across brand, product, and film. Now directing AI film and microdrama, and the pipelines that make them at volume.</p>
+  <a class="down" href="#case-studies">Case studies &#8595;</a>
+</div></header>
+
+<div class="bleed">
+  <figure class="banner rv">
+    <img src="banner-paris.jpg" alt="Wraparound cover painting for Clearly Invisible in Paris: Haussmann facade, red awning, aerialist descending on white silk">
+    <figcaption class="wrap" style="padding-top:0">Wraparound cover painting &middot; <i>Clearly Invisible in Paris</i>, Koël Purie Rinchet &middot; Rupa Publications</figcaption>
+  </figure>
+</div>
+
+
+
+
+<div class="wrap"><div class="meta">
+  <div><b>15+ yrs</b><span>Brand, product &amp; film</span></div>
+  <div><b>50+</b><span>Global brands directed</span></div>
+  <div><b>3</b><span>P&amp;Ls owned</span></div>
+  <div><b>2</b><span>National design awards</span></div>
+</div></div>
+
+<section id="films"><div class="wrap">
+  <div class="sechead">
+    <span class="label">Films</span>
+    <h2 class="craft-line">AI generates every frame. The direction is mine.</h2>
+  </div>
+  <div class="player rv">
+    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UULFypYVPjUN5TSpMZkGWlwqTw&amp;rel=0"
+            title="Films by Cahn Studios" loading="lazy" allowfullscreen
+            allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  <div class="playerlinks">
+    <a href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">All films on YouTube ↗</a>
+    <a href="https://deliriousinnewyork.site" target="_blank" rel="noopener">Delirious in New York ↗</a>
+  </div>
+</div></section>
+
+<section id="case-studies"><div class="wrap">
+  <div class="sechead"><span class="label">Selected Case Studies</span></div>
+
+  <div class="case rv">
+    <div class="num">01</div>
+    <div>
+      <h3>Femina</h3>
+      <div class="meta-line">AI Film &amp; Campaign Direction</div>
+      <div class="facts">
+        <div><span>Client</span>Femina USA, multicultural pageant and its sponsor network</div>
+        <div><span>Audience</span>South Asian diaspora women and families, Pacific Northwest</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 13 September 2026</div>
+      </div>
+      <span class="status">Campaign delivered · event upcoming</span>
+      <p>The pageant needed contestants and sponsors before it needed a stage. I directed the recruitment campaign. Several of those videos became the best posts those accounts have ever run.</p>
+      <ul>
+        <li>15 campaign videos</li>
+        <li>35 contestants signed up</li>
+        <li>32+ sponsors secured</li>
+        <li>350+ tickets sold against 300 seats</li>
+      </ul>
+      <p style="margin-top:16px">It sold past capacity: 350 tickets, 300 seats. For the night, an AI short film, thirty-five stage visuals, and a booth where guests made their own portraits.</p>
+      <p>No flags, no postcards. Each woman's story becomes a place instead. These run live behind a person, so the centre of every frame stays quiet and dark where she stands.</p>
+      <a class="watch" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener">Watch the films ↗</a>
+    </div>
+    <figure class="gallery">
+      <img src="femina-01.jpg" alt="Stage backdrop: woven thread and wheat, calm dark center">
+      <img src="femina-02.jpg" alt="Stage backdrop">
+      <img src="femina-03.jpg" alt="Stage backdrop">
+      <img src="femina-04.jpg" alt="Stage backdrop">
+      <figcaption>Reference frames. Four of thirty-five.</figcaption>
+    </figure>
+  </div>
+
+    <div class="bleed strip rv" id="femina-strip">
+    <figure><video data-src="femina-v05.mp4" poster="femina-v05.jpg" muted loop playsinline preload="none" aria-label="Lotus and still water, stage backdrop"></video></figure>
+    <figure><video data-src="femina-v07.mp4" poster="femina-v07.jpg" muted loop playsinline preload="none" aria-label="Constellation field, stage backdrop"></video></figure>
+    <figure><video data-src="femina-v08.mp4" poster="femina-v08.jpg" muted loop playsinline preload="none" aria-label="Peacock, ink and gold, stage backdrop"></video></figure>
+    <figure><video data-src="femina-v09.mp4" poster="femina-v09.jpg" muted loop playsinline preload="none" aria-label="Light over woven ground, stage backdrop"></video></figure>
+  </div>
+  <div class="wrap"><div class="stripnote">Stage backdrops, running as they run live. Four of thirty-five.</div></div>
+  <div class="bleed strip three rv" id="femina-booth">
+    <figure><video data-src="femina-booth-v1.mp4" poster="femina-booth-v1.jpg" muted loop playsinline preload="none" aria-label="A guest rendered as a queen at the AI booth"></video></figure>
+    <figure><video data-src="femina-booth-v2.mp4" poster="femina-booth-v2.jpg" muted loop playsinline preload="none" aria-label="A guest rendered as a king at the AI booth"></video></figure>
+    <figure><video data-src="femina-booth-v3.mp4" poster="femina-booth-v3.jpg" muted loop playsinline preload="none" aria-label="A guest rendered as royalty at the AI booth"></video></figure>
+  </div>
+  <div class="wrap"><div class="stripnote">The booth. Guests walked up, and walked away as kings and queens.</div></div>
+
+  <div class="case rv">
+    <div class="num">02</div>
+    <div>
+      <h3>Gurukul Stories</h3>
+      <div class="meta-line">AI Storytelling &amp; Curriculum Design</div>
+      <div class="facts">
+        <div><span>Client</span>Gurukul, a Seattle organisation teaching Indian-origin children their heritage language and culture</div>
+        <div><span>Audience</span>Children from grade one up, English at school, Hindi at home</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 2026</div>
+      </div>
+      <span class="status">First title complete &middot; series in production</span>
+      <p>Hindi classes for kids in Seattle run on books written for kids in India. The words assume a street these children have never walked down. A child listens to the story they recognise, and the story was somewhere else.</p>
+      <p>So we are making the books. Illustrated readers in Hindi, graded from first grade up, written for a child who speaks English all day and hears Hindi at home. The art is generated and directed rather than commissioned, which is the only reason a community organisation gets a library instead of four titles.</p>
+      <p>Generating images is the easy half. Holding one world across a whole series, in a script most models render badly, is the work. Every spread gets the same review as paying client work.</p>
+      <ul>
+        <li>First title done: <i>Ek Laal Gend Ka Rahasya</i>, forty pages, grade one</li>
+        <li>Characters, palette and setting held across every spread</li>
+      </ul>
+    </div>
+    <figure class="gallery">
+      <img src="gurukul-cover.jpg" alt="Cover of Ek Laal Gend Ka Rahasya, a Hindi storybook for young readers">
+      <img src="gurukul-s1.jpg" alt="Nikku and Keetu finding the red ball in the garden">
+      <img src="gurukul-s2.jpg" alt="The children and the dog running on the lawn">
+      <img src="gurukul-s3.jpg" alt="Picking tomatoes in the vegetable patch">
+      <figcaption>Ek Laal Gend Ka Rahasya &middot; first title, forty pages</figcaption>
+    </figure>
+  </div>
+
+  <div class="case rv">
+    <div class="num">03</div>
+    <div>
+      <h3>diseasefree.living</h3>
+      <div class="meta-line">Brand Identity, Website, Audience Strategy &amp; Product Architecture</div>
+      <div class="facts">
+        <div><span>Client</span><a href="https://www.instagram.com/dr.virendersodhi/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">Dr. Virender Sodhi</a>, naturopathic physician, 46 years in practice, 25,000 patients</div>
+        <div><span>Audience</span>Adults managing chronic conditions, US and India</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 2025 to now</div>
+      </div>
+      <span class="status">Audience live &middot; platform design complete</span>
+      <p>Forty-six years of clinical authority, almost none of it leaving the consult room. Behind that sat the harder problem: he wanted to build a preventive-health platform and had no audience to launch it to.</p>
+      <p>So I built the audience first. Podcasts, short video, editorial, webinars and a paid newsletter, each format feeding the next, AI running the production line so two people make what a content team makes. Reach was never the point. A warm market on launch day was.</p>
+      <p>Then the brand it would all sit under. I designed the identity and built <a href="https://diseasefree.living" target="_blank" rel="noopener" style="border-bottom:1px solid var(--grey-3)">diseasefree.living</a>: the mark, the typography, the voice, and every page of the site, written around three kinds of patient rather than one generic visitor.</p>
+      <p>Then the platform. Models improvise and medicine cannot, so it generates nothing: every answer is a protocol he approved, picked by a rules engine, checked on his dashboard before anyone sees it. It runs on WhatsApp, because nobody should download an app to be cared for. I designed it end to end and ran the first live test myself.</p>
+      <ul>
+        <li>Paid newsletter, five months, zero unsubscribes</li>
+        <li>Launch webinar: 101 registered, 53% live attendance, 100+ early adopters</li>
+      </ul>
+    </div>
+
+    <div>
+      <figure class="shot" style="margin-bottom:22px"><img src="case-dfl-brand.jpg" alt="diseasefree.living identity and homepage, built around three patient personas"><figcaption>Identity and site &middot; diseasefree.living</figcaption></figure>
+      <figure class="shot" style="margin-bottom:22px"><img src="case-02-ai-physician.png" alt="Deterministic architecture: intake, rules engine, clinician review, WhatsApp delivery"><figcaption>Deterministic architecture and clinical guardrails</figcaption></figure>
+      <figure class="panel">
+        <div class="panel-head">Audience built &middot; no paid media</div>
+        <div class="stats">
+          <div><b>+393%</b><span>YouTube views, YoY</span></div>
+          <div><b>+866%</b><span>Watch hours</span></div>
+          <div><b>87.2%</b><span>Non-follower reach</span></div>
+          <div><b>86.9K</b><span>Social views, 90 days</span></div>
+          <div><b>+402%</b><span>Subscriber growth</span></div>
+          <div><b>+164%</b><span>Newsletter, zero churn</span></div>
+        </div>
+        <figcaption>Verified in-platform</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="case rv">
+    <div class="num">04</div>
+    <div>
+      <h3>YOU Summit</h3>
+      <div class="meta-line">Founding Creative &amp; Design Partner</div>
+      <div class="facts">
+        <div><span>Client</span>YOU Summit, a 1,500-attendee AI conference</div>
+        <div><span>Audience</span>Students and early-career people entering an AI job market</div>
+        <div><span>Where &amp; when</span>University of Washington &middot; 8&ndash;10 January 2027</div>
+      </div>
+      <span class="status">Organic channel live · campaign rebuilding for January</span>
+      <p>The summit exists to make young people confident with AI. Hiring an agency to market it would have contradicted the whole premise, so a student team runs it, trained and directed by me.</p>
+      <p>The identity is built to be run by people who did not design it, with a template library precise enough that a first-timer still makes something good. I also designed the AI Film Sprint that closes the final day.</p>
+      <p>We piloted nine channels. Reddit compounded, and now reaches 333,000 views a post and climbing. When the summit moved to January I kept that one running and paused the rest. No sense spending against a date that no longer existed.</p>
+    </div>
+    <figure class="shot"><img src="case-03-you-summit-brandboard.png" alt="YOU Summit brand system: palette, type, template library, operating model"><figcaption>Brand system and template library</figcaption></figure>
+  </div>
+
+  <div class="case rv">
+    <div class="num">05</div>
+    <div>
+      <h3>Feedo</h3>
+      <div class="meta-line">Brand, Product Design &amp; Strategy</div>
+      <div class="facts">
+        <div><span>Client</span>Cahn Studios, built in-house as a product bet</div>
+        <div><span>Audience</span>Art editors and video teams reviewing cuts with clients</div>
+        <div><span>Where &amp; when</span>Seattle &middot; 2025, six months live</div>
+      </div>
+      <span class="status">Built · validated · capital redirected</span>
+      <p>A working video-feedback platform. Brand and interface mine, prototyped in Lovable before a developer took it to production. Built with AI in a month, live for six, fifty active users, two hundred interviews behind it. On ease of use it does what Frame.io does now, and we had it first.</p>
+      <p>Six months of real users told us what no plan would have: where we were genuinely better, and where Adobe buying Frame.io left us no room. We stopped building and kept the work. All of it carried into the health platform.</p>
+    </div>
+    <figure class="shot"><img src="case-05-feedo.png" alt="Feedo identity and the live product: workspaces, timeline comments, frame annotation"><figcaption>Identity and the working product</figcaption></figure>
+  </div>
+
+</div>
+
+</section>
+
+<section id="work"><div class="wrap">
+  <div class="sechead"><span class="label">Selected Work</span></div>
+</div>
+<div class="bleed">
+  <div class="workgrid rv">
+    <a href="https://www.behance.net/gallery/199246757/Lenskart-Murals-Retail-Visual-Identity-Experience" target="_blank" rel="noopener">
+      <img src="work-01-lenskart.jpg" alt="Lenskart Murals" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/7bae80199246757.Y3JvcCwyMDc5LDE2MjYsNDczLDEyMDQ.jpg'">
+      <span class="cap"><b>Lenskart Murals</b><span>Retail visual identity &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/199248247/Nestl-Wall-Art-2022-Graphics-Brand-Expression" target="_blank" rel="noopener">
+      <img src="work-02-nestle.jpg" alt="Nestl&eacute; Wall Art" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/b0444c199248247.Y3JvcCwzMDI0LDIzNjUsMCwzMjk.jpeg'">
+      <span class="cap"><b>Nestl&eacute; Wall Art</b><span>Brand expression at wall scale &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/199791923/Pernod-Ricard-FacesExperiential-Wall-ArtBrand-Culture" target="_blank" rel="noopener">
+      <img src="work-03-pernod.jpg" alt="Pernod Ricard Faces" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/954fff199791923.Y3JvcCwxMjkwLDEwMDksMCw0NTY.png'">
+      <span class="cap"><b>Pernod Ricard Faces</b><span>Experiential wall art &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/198786183/SwissIndia-75th-Anniversary-Visual-Campaign" target="_blank" rel="noopener">
+      <img src="work-04-swissindia.jpg" alt="Swiss &amp; India: 75 Years" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/472bfd198786183.664fbd23d51c1.jpg'">
+      <span class="cap"><b>Swiss &amp; India: 75 Years</b><span>Two animated films, 50,000 viewers &middot; 2023</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/199340531/Urban-CompanyBrand-Experience-Narrative-Graphics" target="_blank" rel="noopener">
+      <img src="work-05-urban.jpg" alt="Urban Company" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/b8c495199340531.Y3JvcCwxMzgwLDEwODAsMzE3LDA.jpg'">
+      <span class="cap"><b>Urban Company</b><span>Brand experience &amp; narrative graphics &middot; 2022</span></span>
+    </a>
+    <a href="https://www.behance.net/gallery/198787025/Swiss-On-Wheels-Rolling-Campaign-Visual-Strategy" target="_blank" rel="noopener">
+      <img src="work-06-swisswheels.jpg" alt="Swiss On Wheels" loading="lazy" onerror="this.onerror=null;this.src='https://mir-s3-cdn-cf.behance.net/projects/max_808/b4eda0198787025.Y3JvcCwxMDkyLDg1NCwwLDQ1MQ.jpg'">
+      <span class="cap"><b>Swiss On Wheels</b><span>Rolling campaign &amp; visual strategy &middot; 2023</span></span>
+    </a>
+  </div>
+</div>
+<div class="wrap" style="margin-top:72px">
+  <div class="index">
+    <a class="row" href="https://www.youtube.com/@AIwithCahnStudios" target="_blank" rel="noopener"><h4>AI with Cahn Studios<span class="ext">&#8599;</span></h4><p>Campaign films, motion, process</p><div class="yr">Ongoing</div></a>
+    <a class="row" href="https://deliriousinnewyork.site" target="_blank" rel="noopener"><h4>Delirious in New York<span class="ext">&#8599;</span></h4><p>AI short film, festival circuit</p><div class="yr">2026</div></a>
+    <a class="row" href="https://www.behance.net/gallery/199262053/Book-Cover-SystemBook-Identity-Visual-Narrative" target="_blank" rel="noopener"><h4>Book covers, twice awarded<span class="ext">&#8599;</span></h4><p>World Book Fair and Oxford Book Store Prize, same year</p><div class="yr">2024</div></a>
+    <a class="row" href="https://feedopro.com" target="_blank" rel="noopener"><h4>Feedo Pro<span class="ext">&#8599;</span></h4><p>Video-feedback SaaS. Brand, interface, launch</p><div class="yr">2025</div></a>
+    <div class="row"><h4>Save the Children</h4><p>Three-part comic on political literacy, reached 1,000+ children</p><div class="yr">2021</div></div>
+    <div class="row"><h4>Find Your Story. Build Your Strategy.</h4><p>Paid intensive, twelve seats, thirty-day strategy each</p><div class="yr">2026</div></div>
+    <div class="row"><h4>Tasveer Film Festival</h4><p>Creative collaboration, Seattle South Asian film festival</p><div class="yr">2026</div></div>
+    <div class="row"><h4>Batch image-resizing engine</h4><p>AI tool for Sirona Hygiene, 99% accuracy, IP retained</p><div class="yr">2025</div></div>
+    <div class="row"><h4>Cahn's AI Canvas</h4><p>Newsletter on AI and creativity, 800 readers in year one</p><div class="yr">Ongoing</div></div>
+    <div class="row"><h4>Talks &amp; research</h4><p>Seattle Desi TV &middot; Augmented AI &middot; YOU Summit &middot; IJNRD contributor</p><div class="yr">Ongoing</div></div>
+  </div>
+</div></section>
+
+
+
+<section id="craft"><div class="wrap">
+  <div class="sechead">
+    <span class="label">The Hand</span>
+    <h2 class="craft-line">Over 300 books in three years for Rupa Publications.</h2>
+  </div>
+  
+  <div class="craft rv">
+    <figure><img src="craft-01-paris-cover.jpg" alt="Clearly Invisible in Paris, cover" loading="lazy"><figcaption>Clearly Invisible in Paris &middot; Rupa</figcaption></figure>
+    <figure><img src="craft-06-salesgirl.jpg" alt="Mis(s)adventures of a Salesgirl, cover" loading="lazy"><figcaption>Mis(s)adventures of a Salesgirl &middot; Best Book Cover, World Book Fair 2024</figcaption></figure>
+    <figure><img src="craft-02-namma.jpg" alt="Namma Bangalore, cover" loading="lazy"><figcaption>Namma Bangalore &middot; Oxford Book Store Prize 2024</figcaption></figure>
+    <figure><img src="craft-b1-roads.jpg" alt="Ruskin Bond, Roads to Delhi, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Roads to Delhi</figcaption></figure>
+    <figure><img src="craft-b2-granny.jpg" alt="Ruskin Bond, Granny's Tales, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Granny's Tales</figcaption></figure>
+    <figure><img src="craft-b3-greatest25.jpg" alt="Ruskin Bond, Greatest 25 Stories, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Greatest 25 Stories</figcaption></figure>
+    <figure><img src="craft-b4-garden.jpg" alt="Ruskin Bond, Garden of Dreams, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Garden of Dreams</figcaption></figure>
+    <figure><img src="craft-b5-goodenglish.jpg" alt="Ruskin Bond, Good English through Stories and Verses, cover" loading="lazy"><figcaption>Ruskin Bond &middot; Good English through Stories and Verses</figcaption></figure>
+    <figure><img src="craft-08-patriot.jpg" alt="The Psychology of a Patriot, cover" loading="lazy"><figcaption>The Psychology of a Patriot &middot; Rupa</figcaption></figure>
+    <figure><img src="craft-07-charanik-cover.jpg" alt="Charanik, The Walker, cover" loading="lazy"><figcaption>Charanik &middot; The Walker</figcaption></figure>
+    <figure><img src="craft-03-haveli.jpg" alt="The Haveli, illustrated chapter opener spread" loading="lazy"><figcaption>The Haveli &middot; chapter opener</figcaption></figure>
+    <figure><img src="craft-05-aloft.jpg" alt="Aloft and Unbound, paragliders over an alpine valley" loading="lazy"><figcaption>Aloft and Unbound &middot; editorial illustration</figcaption></figure>
+  </div>
+  <p class="craftnote">Twelve shown. Five of them Ruskin Bond. Two national prizes in one year: Best Book Cover at the World Book Fair for <i>Mis(s)adventures of a Salesgirl</i>, and the Oxford Book Store Prize for <i>Namma Bangalore</i>.</p>
+  <p class="craftnote">Roughly two books a week, every week, held to one standard. I was building production systems years before there was an AI to build them with.</p>
+</div></section>
+
+<section id="practice"><div class="wrap">
+  <div class="sechead"><span class="label">What I Do</span></div>
+  <div class="practice">
+    <div>
+      <span class="n">01</span>
+      <h3>AI film,<br>microdrama &amp; story</h3>
+      <p>Short films, serialised vertical drama, campaigns and stage work, plus the pipelines that let a small team work at a scale that used to need a department. AI makes the frames. The direction, the story, and the standard are mine.</p>
+    </div>
+    <div>
+      <span class="n">02</span>
+      <h3>AI strategy &amp;<br>product architecture</h3>
+      <p>Use case, system design, interface, and guardrails. I take an idea from a sentence to a specification an engineering team can build from, and I stay with it through the design of what users actually see.</p>
+    </div>
+    <div>
+      <span class="n">03</span>
+      <h3>Brand strategy<br>&amp; creative direction</h3>
+      <p>Positioning, identity, motion, and voice, codified into libraries and governance so a brand holds its standard as headcount and surface area grow.</p>
+    </div>
+    <div>
+      <span class="n">04</span>
+      <h3>Building &amp;<br>leading teams</h3>
+      <p>Hiring, training, and directing creative talent, in my own studios and inside other people's organizations. I would rather raise the standard of the people doing the work than do all of it myself. That is why the standard outlasts me.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="principles"><div class="wrap">
+  <div class="sechead"><span class="label">How I Run a Team</span></div>
+
+  <div class="principle rv">
+    <h3>Direction, then room</h3>
+    <div>
+      <p>I set the standard and the direction, then hand over execution. The YOU Summit campaign is made by a student team I trained. I review it. I do not rewrite it, because rewriting someone's work teaches them nothing.</p>
+      <span class="ev">YOU Summit &middot; nine channels &middot; student team</span>
+    </div>
+  </div>
+
+  <div class="principle rv">
+    <h3>A review gate, not a bottleneck</h3>
+    <div>
+      <p>Everything passes me inside twenty-four hours. Playbooks, brand guidelines and a versioned template library mean most of it passes first time, which is the point. The standard holds when I am not in the room.</p>
+      <span class="ev">24-hour turnaround &middot; nine platforms &middot; one standard</span>
+    </div>
+  </div>
+
+  <div class="principle rv">
+    <h3>The date is part of the brief</h3>
+    <div>
+      <p>A deadline is a creative constraint, not an administrative one. Across fifteen years and three studios the work has gone out when it was promised, and teams I have led have not needed heroics to get there.</p>
+      <span class="ev">80%+ client retention across 50+ brands</span>
+    </div>
+  </div>
+
+</div></section>
+
+<section id="ventures"><div class="wrap">
+  <div class="sechead"><span class="label">Leadership</span></div>
+  <div>
+    <div class="vent rv">
+      <div><h4>YOU Summit</h4><div class="role">Founding Creative &amp; Design Partner</div></div>
+      <p>Creative lead for a 1,500-attendee AI conference at the University of Washington. I set the brand standard, authored the nine-channel launch strategy, and train and direct the student team that makes it. The summit exists to make young people confident with AI, so the campaign is built by the people it is for. An organization I do not own, running to a standard I hold.</p>
+      <div class="yr">2026 &ndash; 2027</div>
+    </div>
+    <div class="vent rv">
+      <div><h4>Arteq Studios</h4><div class="role">Co-Founder &amp; Chief Art Director &middot; Gurgaon</div></div>
+      <p>Led an eight-person creative team through five consecutive years of revenue growth, delivering 500+ works for 50+ brands across India, the US, Singapore, and the UAE. Nestl&eacute;, Lenskart, Urban Company, Pernod Ricard, the Embassy of Switzerland, Rupa Publications. 80%+ client retention, two national awards.</p>
+      <div class="yr">2019 &ndash; 2024</div>
+    </div>
+    <div class="vent rv">
+      <div><h4>Cahn Studios</h4><div class="role">Co-Founder &amp; CEO &middot; Seattle</div></div>
+      <p>AI studio carrying full P&amp;L responsibility. Revenue-positive from year one on a recurring client base, five active engagements across health, events, education, and consumer. I hire the team, hold the review gate, and make sure nobody is guessing what good looks like.</p>
+      <div class="yr">2024 &ndash; present</div>
+    </div>
+    <div class="vent rv">
+      <div><h4>King Cha</h4><div class="role">Founder &amp; Design Director &middot; India</div></div>
+      <p>Consumer brand taken from zero to sustained annual sales on design-led identity and AI-assisted campaigns. Pursuing FDI approval for international expansion.</p>
+      <div class="yr">2022 &ndash; present</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="sechead"><span class="label">About</span></div>
+  <div class="about rv">
+    <img src="portrait.jpg" alt="Aditi Bhandari" style="width:100%;display:block" onerror="this.onerror=null;this.src='PORTRAIT.jpg'">
+    <div>
+      <p>Creative executive and AI strategist in Seattle. 15+ years across brand, product, and film, and three ventures founded and run.</p>
+      <p>My education runs in two directions: a B.Tech (Hons) in Computer Science Engineering, then a Masters in Animation from the Academy of Art University. The engineering degree is not why I would build a system. It is why I can specify one, read what an engineering team tells me, and argue the trade-offs without a translator. The second degree is where the standard comes from. It is also why my strategy tends to survive execution: I have usually made the thing I am arguing for.</p>
+      <p>At Cahn Studios I architect AI products, direct brands, and build the teams that deliver them. Before Seattle I co-founded Arteq Studios in Gurgaon and led a team of eight through five hundred pieces of work for Nestl&eacute;, Lenskart, Urban Company, the Embassy of Switzerland, and Rupa Publications.</p>
+      <p>I still draw, and I teach drawing at Seattle Art Circle. The next decade's creative organizations will be AI-native. I would rather build one than watch it happen.</p>
+    </div>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <span class="label" style="color:#5a5a5a;">Contact</span>
+  <h2>If you are building something that has to be both ambitious and real, I would like to hear about it.</h2>
+  <a class="mail" href="mailto:adtbhandari@gmail.com">adtbhandari@gmail.com</a>
+  <div class="foot-links">
+    <a href="https://www.linkedin.com/in/aditibhandari84/">LinkedIn</a>
+    <a href="https://www.youtube.com/@AIwithCahnStudios">YouTube</a>
+    <a href="https://deliriousinnewyork.site">Delirious in New York</a>
+    <a href="https://medium.com/@adtbhandari">Medium</a>
+    <a href="https://www.instagram.com/a_diti_b/">Instagram</a>
+    <a href="https://www.behance.net/aditibhandari20">Behance</a>
+    <a href="https://aditibhandari.myportfolio.com">Archive</a>
+  </div>
+  <div class="fineprint">© 2026 Aditi Bhandari · Seattle, WA</div>
+</div></footer>
+
+<script>
+(function(){
+  var r = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    r.forEach(function(e){ e.classList.add('in'); }); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+  r.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){
+  var vs = [].slice.call(document.querySelectorAll('video[data-src]'));
+  if (!vs.length) return;
+  if (!('IntersectionObserver' in window)) {
+    vs.forEach(function(v){ v.src = v.dataset.src; v.play().catch(function(){}); }); return;
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.src) v.src = v.dataset.src;
+        v.play().catch(function(){});
+      } else if (!v.paused) { v.pause(); }
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.15 });
+  vs.forEach(function(v){ io.observe(v); });
+})();
+</script>
+</body>
+</html>
