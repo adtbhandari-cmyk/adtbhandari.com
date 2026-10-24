@@ -106,7 +106,9 @@
   .bleed { width: 100vw; margin-left: calc(50% - 50vw); }
 
   /* --- craft: true proportions, masonry --- */
-  .craft { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+  .craft { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; }
+  @media (max-width: 1100px) { .craft { grid-template-columns: repeat(9, 1fr); } }
+  @media (max-width: 760px) { .craft { grid-template-columns: repeat(6, 1fr); } }
   .craft figure { margin: 0; }
   .craft img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; background: var(--grey-4); }
   .craft figcaption { display: none; }
@@ -133,10 +135,10 @@
   .rv { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.6,.2,1); }
   .rv.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
-  .mjgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; }
+  .mjgrid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; }
   .mjgrid img, .mjgrid video { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: var(--grey-4); }
-  @media (max-width: 860px) { .mjgrid { grid-template-columns: repeat(4, 1fr); } }
-  @media (max-width: 520px) { .mjgrid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 1100px) { .mjgrid { grid-template-columns: repeat(9, 1fr); } }
+  @media (max-width: 760px) { .mjgrid { grid-template-columns: repeat(6, 1fr); } }
   .panel { border: 1px solid var(--grey-3); background: #fff; }
   .panel-head { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); padding: 18px 22px 0; }
   .curve { width: 100%; height: 48px; display: block; margin-top: 10px; }
@@ -463,7 +465,9 @@
     <span class="label">The Hand</span>
     <h2 class="craft-line">Over 300 books in three years for Rupa Publications.</h2>
   </div>
-  
+</div>
+
+<div class="bleed">
   <div class="craft rv">
     <figure><img src="adtbhandari-site/craft-01-paris-cover.jpg" alt="Clearly Invisible in Paris, cover" loading="lazy"><figcaption>Clearly Invisible in Paris &middot; Rupa</figcaption></figure>
     <figure><img src="adtbhandari-site/craft-06-salesgirl.jpg" alt="Mis(s)adventures of a Salesgirl, cover" loading="lazy"><figcaption>Mis(s)adventures of a Salesgirl &middot; Best Book Cover, World Book Fair 2024</figcaption></figure>
@@ -478,8 +482,12 @@
     <figure><img src="adtbhandari-site/craft-03-haveli.jpg" alt="The Haveli, illustrated chapter opener spread" loading="lazy"><figcaption>The Haveli &middot; chapter opener</figcaption></figure>
     <figure><img src="adtbhandari-site/craft-05-aloft.jpg" alt="Aloft and Unbound, paragliders over an alpine valley" loading="lazy"><figcaption>Aloft and Unbound &middot; editorial illustration</figcaption></figure>
   </div>
+</div>
+
+<div class="wrap">
   <p class="craftnote">Twelve shown. Five of them Ruskin Bond. Two national prizes in one year: Best Book Cover at the World Book Fair for <i>Mis(s)adventures of a Salesgirl</i>, and the Oxford Book Store Prize for <i>Namma Bangalore</i>.</p>
   <p class="craftnote">Roughly two books a week, every week, held to one standard. I was building production systems years before there was an AI to build them with.</p>
+</div>
 </div></section>
 
 <section id="practice-grid"><div class="wrap">
